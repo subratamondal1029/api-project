@@ -24,7 +24,7 @@
         <nav>
             <span class="logo">API</span>
             <ul>
-                <li class="nav-hide"><a href="#">Home</a></li>
+                <li class="nav-hide"><a href="#" class="active">Home</a></li>
                 <li class="nav-hide"><a href="#cataheading">Catagories</a></li>
                 <li class="nav-hide"><a href="html-files/contact.html">Contact Us</a></li>
             </ul>
@@ -36,7 +36,7 @@
         <nav id="sidenav">
             <img src="media/images/close.webp" alt="..." id="close">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="#" class="active">Home</a></li>
                 <li><a href="#cataheading">Catagories</a></li>
                 <li><a href="html-files/contact.html">Contact Us</a></li>
             </ul>
@@ -118,21 +118,18 @@
 
     </main>
     <footer>
-        <nav>
-            <span class="copyright">
-            copyright &copy; <span id="current-year"></span> 
-            <span class="logo">API</span>
-            <span class="link">
+        <div id="copyRight">
+            <h2>Copyright &copy; <span id="current-year"></span></h2>
+            <a class="logo" href="#">API</a>
+        </div>
+        <a id="privacyPolicy" href="html-files/privacy_policy.html"><h3>privacy_policy</h3></a>
 
-                <a href="html-files/privacy_policy.html">privacy_policy</a>
-            </span>
-            </span>
-            <span class="author">
-
-                <a href="https://subratamondal1029.github.io/mini_potpolio/" target="_blank">Author:-(subrata mondal)</a>
-            </span>
-        </nav>
+        <a href="https://subrataprojects.netlify.app" id="author">
+            <img src="media/images/subrata.png" alt="Developer">
+            <span id="tooltip">Developer</span>
+        </a>
     </footer>
+
 <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="js-files/script.js"></script>
     <script src="js-files/home.js" type="module"></script>
