@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* reset css property */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+}
+
+/* css variable for color  */
+
+:root {
+  --HFcolor: whitesmoke;
+  --listcolor: #ebdede;
+  --HFbgcolor: rgb(79, 32, 190);
+  --hovercolor: rgb(59, 173, 207);
+  --hoverBGcolor: rgb(0 67 255);
+}
+
+/* seting body hight */
+
+body {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 30px;
+  font-family: "Poppins", sans-serif;
+}
+/*  styling header and navigation bar */
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 50;
+}
+
+header nav {
+  z-index: 10;
+  background-color: var(--HFbgcolor);
+  width: 100vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* responsive ness styling */
+
+#menu {
+  height: 30px;
+  margin-inline: 25px;
+  display: none;
+  cursor: pointer;
+  filter: invert(1);
+}
+
+/* logo styling */
+
+.logo {
+  cursor: pointer;
+  margin: 0px 10px;
+  font-family: "DM Serif Display";
+  color: var(--HFcolor);
+  font-size: 22px;
+}
+.active::before {
+  width: 100%;
+}
+
+/* links styling */
+
+header nav ul {
+  display: flex;
+  padding: 13px;
+  margin: 0px auto;
+}
+header nav ul li {
+  padding: 2px 15px;
+  list-style: none;
+  transition: all .3s linear;
+}
+header nav ul li a {
+    transition: all 1s;
+  color: var(--HFcolor);
+  font-size: 25px;
+  position: relative;
+}
+
+/* Styling the header apply button */
+
+header nav .btn {
+  cursor: pointer;
+  margin: 0px 24px;
+  background-color: rgba(13, 109, 228, 0.87);
+  border: none;
+  padding: 7px 8px;
+  font-size: 18px;
+  color: var(--HFcolor);
+  border-radius: 6px;
+  font-family: sans-serif ,serif;
+}
+
+/* adding hover effect in header  */
+header nav ul li a::before{
+  content: "";
+  width: 0;
+  border-bottom: 2px solid var(--HFcolor);
+  display: inline-block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  transition: all .3s linear;
+}
+
+header nav ul li:hover ::before{
+width: 100%;
+}
+
+/* sidebar */
+
+#sidenav {
+  z-index: 100;
+  border-radius: 10px;
+  position: fixed;
+  left: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 50vw;
+  height: 55vh;
+  padding: 10px;
+  transition: left 1s;
+}
+
+#sidenav ul {
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+}
+
+#sidenav ul li {
+  margin: 5px;
+  font-size: 20px;
+}
+
+#sidenav ul li a {
+  font-size: 25px;
+  color: rgb(226, 219, 219);
+}
+
+#close {
+  cursor: pointer;
+  height: 30px;
+  margin-right: auto;
+  margin-left: 10px;
+  margin-top: 20px;
+  filter: invert(1);
+}
+
+/* main styling */
+
+main {
+  height: 100%;
+  margin: 30px 20px 100px 20px;
+}
+
+/* .btn styling */
+.btn {
+  cursor: pointer;
+  background-color: var(--HFbgcolor);
+  color: white;
+  font-size: 20px;
+  padding: 14px 24px;
+  border-radius: 8px;
+  margin: 10px;
+  border: none;
+  transition: all .3s linear;
+}
+
+.btn:hover {
+  background-color: var(--hoverBGcolor);
+}
+
+/* footer styling */
+
+footer {
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+}
+footer nav {
+  background-color: var(--HFbgcolor);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  flex-wrap: wrap;
+}
+footer nav a {
+  color: var(--HFcolor);
+  transition: all .2s linear;
+}
+footer nav a:hover {
+  color: var(--hovercolor);
+}
+.copyright {
+  font-size: 20px;
+  box-sizing: border-box;
+  margin: auto;
+  color: var(--HFcolor);
+}
+footer nav .link {
+  padding: 0px 14px;
+}
+
+/* author styling */
+
+footer nav .author {
+  margin-top: 16px;
+  font-size: 13px;
+  display: block;
+}

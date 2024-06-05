@@ -1,0 +1,95 @@
+/* for tablet and mobile devices */
+@media screen and (max-width: 690px) {
+    /* styling nav bar for responsive */
+
+    header nav{padding: 10px;}
+  
+    #sidenav ul li:last-child a{
+      font-size: 20px;
+    }
+
+    .nav-hide {
+        display: none;
+    }
+
+    #menu {
+        display: block;
+    }
+    footer nav {
+        flex-direction: column;
+    }
+    footer .link {
+        margin-inline: 92px;
+    }
+
+    /* styling the welcome section to tablet and device responsive */
+
+    .heading_sec {
+        background: none;
+        width: 100vw;
+        height: 100%;
+    }
+    .welcome_con {
+        font-size: 22px;
+        width: 85%;
+        height: 60%;
+        margin: 20px 50px 10px 1px;
+    }
+    .welcome_con .auto-text {
+        font-size: 19px;
+    }
+    #cataheading {
+        margin-block: 12px 2px;
+    }
+    .cata_container {
+        margin: 6px;
+    }
+    
+    .inputs::placeholder{
+      font-size: 15px;
+    }
+   
+   #cataSelects{
+     width: 50%;
+   }
+
+   /* styling courses show and hide for small devices */
+   div#foldicon{
+    display: block;
+   }
+
+   div#courses{
+    left: 100%;
+   }
+
+   /* contact form responsive styling */
+   #contact .input_field{
+    width: 85vw;
+}
+   #contact .input_field textarea{ 
+    width: 83%;
+}
+}
+
+
+/* only for mobile devices */
+@media only screen and (max-width: 455px) {
+    
+    #disclaimer_content ul li p{
+        font-size: 25px;
+    }
+
+    #formtitle{
+        margin: 7% auto;
+    }
+
+    .input_field{width: 100%;}
+
+    #imageSlider{
+        height: 45vh;
+    }
+    
+    .control img{
+        filter: invert(1);
+    }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="subrata mondal" />
+<meta name="description" content="API contact form. contact with API" />
+<meta name="keywords" content="API customer care no, API contacts" />
+<link rel="stylesheet" href="../css-files/contact.css">
+<link rel="stylesheet" href="../css-files/responsive.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<title>Contact us || API</title>
+</head>
+
+<body>
+<!--------------------------
+            ------ header and nav bar--
+            ----------------------------->
+<header>
+<nav>
+<span class="logo">API</span>
+<ul>
+<li class="nav-hide"><a href="../index.html">Home</a></li>
+<li class="nav-hide"><a href="../index.html#cata-heading">Catagories</a></li>
+<li class="nav-hide"><a href="#" class="active">Contact Us</a></li>
+</ul>
+<a href="apply.html" class="nav-hide">
+<button class="btn">Apply Now</button>
+</a>
+<img src="../media/images/menu.webp" alt="..." id="menu">
+</nav>
+<nav id="sidenav">
+<img src="../media/images/close.webp" alt="..." id="close">
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../index.html#cata-heading">Catagories</a></li>
+<li><a href="#" class="active">Contact Us</a></li>
+</ul>
+<a href="apply.html" id="sidenav-btn">
+<button class="btn">Apply Now</button>
+</a>
+</nav>
+</header>
+
+<main>
+<form action="https://formsubmit.co/7dd6a70f45484fe242a932229f192b09" method="POST" id="contactForm">
+<!-- <form id="contactForm"> -->
+
+  <!-- hidden content -->
+<div>
+<input type="hidden" name="_subject" id="ContactSubject" value="New Support Application from  API! contact Us page">
+<input type="hidden" name="_blacklist" value="spammy pattern, banned term, phrase">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://apiapply.000webhostapp.com/html-files/thanks.html">
+</div>
+
+<div class="input_field val">
+<input type="text" name="Name" id="name" placeholder="Enter your Full Name *" class="inputs req" autocomplete="off">
+<span class="erricon">
+<i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
+<i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
+</span>
+<div class="err">
+Error Here
+</div>
+</div>
+
+<div class="input_field val">
+<input type="email" name="email" id="email" placeholder="Enter your Email *" class="inputs" autocomplete="off">
+<span class="erricon">
+<i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
+<i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
+</span>
+<div class="err">
+Error Here
+</div>
+</div>
+
+<div class="input_field val">
+<input type="number" name="phone" id="phone" placeholder="Enter your Phone Number *" class="inputs" autocomplete="off">
+<span class="erricon">
+<i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
+<i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
+</span>
+<div class="err">
+Error Here
+</div>
+</div>
+
+<div class="input_field val">
+<input type="text" name="subject" id="subject" placeholder="Enter A subject *" class="inputs req" autocomplete="off">
+<span class="erricon">
+<i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
+<i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
+</span>
+<div class="err">
+Error Here
+</div>
+</div>
+
+<div class="input_field val">
+<textarea name="message" id="msg" placeholder="Put a Message Here" class="req"></textarea>
+<span class="erricon">
+<i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
+<i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
+</span>
+<div class="err">
+Error Here
+</div>
+</div>
+
+<div class="input_field val">
+<label id="captchaCode" for="captcha"></label>
+<input type="text" id="captcha" class="inputs" placeholder="Enter Ans *">
+<span class="erricon">
+<i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
+<i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
+</span>
+<div class="err">
+Error Here
+</div>
+</div>
+
+<div id="sendBtn">
+<button type="submit" id="contactDetailssend" class="btn">Get In Touch</button>
+<div id="load"> <img src="../media/images/submitload.webp" loading="lazy" width="50" height="50" alt="wait for a second"></div>
+</div>
+</form>
+</main>
+<!--------------------
+          ---------footer---------
+          ------------------------>
+
+<footer>
+<nav>
+<span class="copyright">
+copyright &copy; <span id="current-year"></span>
+<span class="logo">API</span>
+<span class="link">
+
+<a href="privacy_policy.html">privacy_policy</a>
+</span>
+</span>
+<span class="author">
+
+<a href="https://subratamondal1029.github.io/mini_potpolio/" target="_blank">Author:-(subrata mondal)</a>
+</span>
+</nav>
+</footer>
+<script src="https://kit.fontawesome.com/c9bf0afb2d.js" crossorigin="anonymous"></script>
+<script src="../js-files/contact.js"></script>
+<script src="../js-files/script.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>
