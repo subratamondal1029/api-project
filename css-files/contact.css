@@ -109,6 +109,10 @@ body {
   display: block;
 }
 
+#sendBtn{
+  margin-bottom: 35px;
+}
+
 
 #load{
   display: none;
