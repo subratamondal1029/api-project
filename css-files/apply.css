@@ -1,287 +1,332 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 @import url(style.css);
 
-
-
 /* styling apply  */
 
 /* disclaimer styling */
-
-#disclaimer {
-    /* background-color: rgb(139, 71, 71); */
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    z-index: 130;
-    bottom: 0.1px;
-    right: 0.1px;
-    /* display: none; */
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+#disclaimerOverlay {
+  background: transparent;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 11;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-/* main container styling */
-
-#disclaimer_container {
-    background-color: rgba(20, 33, 107, 0.95);
-    border-radius: 10px;
-    min-width: 60vw;
-    height: 100%;
-    /* border: 2px solid red; */
+#loading {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
 }
 
-#disclaimer_content{
-
-  margin-top: 10px;
+#loading img {
+  width: 100px;
 }
 
-/* disclaimer content styling */
-
-#disclaimer_content ul {
-    /* border: 2px solid red; */
-    text-align: center;
-    padding: 5vw;
-    margin-top: 24px;
+#disclaimerContainer {
+  max-width: 500px;
+  width: 90vw;
+  color: white;
+  background-color: var(--HFbgcolor);
+  border-radius: 10px;
+  position: relative;
+  transform: scale(0) translateY(-150%);
+  transition: all 0.3s ease-in;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
 }
 
-#disclaimer_content ul li {
-    padding: 10px;
-    color: red;
-    font-size: 31px;
+#disclaimerContainer.show {
+  transform: scale(1) translateY(0%);
 }
 
-/* disclaimer button styling */
+.closeBtn {
+  position: absolute;
+  right: 0;
+}
 
-#disclaimer_btn {
-    text-align: right;
-    padding-right: 4vw;
+.closeBtn.icon {
+  border: none;
+  /* background-color: #ffffff; */
+  padding: 7px;
+  border-radius: 0 0 0 10px;
+  cursor: pointer;
+  box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 6px -1px rgb(186 191 199 / 70%),
+    -0.5px -0.5px 0px rgb(196 190 221), 0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+    0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.closeBtn.icon img {
+  transition: all 0.2s ease-out;
+  user-select: none;
+}
+
+.closeBtn.icon:hover img {
+  transform: rotate(180deg);
+}
+
+.closeBtn.btn {
+  padding: 8px 19px;
+  bottom: 0;
+  box-shadow: 0px 1px 8px 1px #6035c5de;
+}
+
+#disclaimers {
+  box-sizing: border-box;
+  width: 85%;
+  height: 100%;
+  padding: 9px 13px;
+}
+
+.disclaimer {
+  list-style-position: inside;
+  list-style-type: decimal;
+  font-size: 18px;
+  margin-block: 15px;
 }
 
 /* form styling start  Here  */
 
 #formtitle {
-    text-align: center;
-    padding: 10px;
-    border-bottom: 1px solid grey;
-    width: 80%;
-    margin: 3% auto;
-    font-size: 28px;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid grey;
+  width: 80%;
+  margin: 3% auto;
+  font-size: 28px;
 }
 
 /* Catagories select option */
 
 #cataSelect {
-    text-align: center;
-    margin: 6px;
-    outline: none;
+  text-align: center;
+  margin: 6px;
+  outline: none;
 }
 
 #cataSelects {
-    border: 2px dashed rgb(76, 49, 49);
-    background-color: rgb(231, 231, 244);
-    color: blue;
-    font-size: 19px;
-    padding: 10px;
-    outline: none;
+  border: 2px dashed rgb(76, 49, 49);
+  background-color: rgb(231, 231, 244);
+  color: blue;
+  font-size: 19px;
+  padding: 10px;
+  outline: none;
 }
 
 label {
-    font-size: 20px;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 450;
-    margin-bottom: 3px;
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 450;
+  margin-bottom: 3px;
 }
 
 #mainForm {
-    position: relative;
-    width: 90%;
-    min-height: 70vh;
-    margin: auto;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    visibility: hidden;
-    overflow: hidden;
-    margin-bottom: 20px;
-    /* border: 2px solid green; */
+  position: relative;
+  width: 90%;
+  min-height: 70vh;
+  margin: auto;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  visibility: hidden;
+  overflow: hidden;
+  margin-bottom: 20px;
+  /* border: 2px solid green; */
 }
 /* input field styling startForm Here */
 .input_field {
-    margin: 13px auto;
-    width: 34%;
+  margin: 13px auto;
+  width: 34%;
 }
 .input_field .inputs {
-    border: 1.5px solid #e3dede;
-    transition: all 0.6s ease;
+  border: 1.5px solid #e3dede;
+  transition: all 0.6s ease;
 }
 
 .input_field .inputs:focus {
-    border-color: black;
+  border-color: black;
 }
 
 .inputs {
-    width: 100%;
-    padding: 10px;
-    font-size: 17px;
-    outline: none;
-    /* border: 1.5px solid black; */
-    margin-bottom: 2px;
-    display: inline-block;
+  width: 100%;
+  padding: 10px;
+  font-size: 17px;
+  outline: none;
+  /* border: 1.5px solid black; */
+  margin-bottom: 2px;
+  display: inline-block;
 }
 
 #DoB {
-    width: 100%;
-    padding: 10px;
-    font-size: 17px;
-    outline: none;
-    margin-bottom: 2px;
-    margin-top: 5px;
-    /* background-color: white; */
-    border: 1px dashed blue;
+  width: 100%;
+  padding: 10px;
+  font-size: 17px;
+  outline: none;
+  margin-bottom: 2px;
+  margin-top: 5px;
+  /* background-color: white; */
+  border: 1px dashed blue;
 }
 
 /* styling for select option */
 .input_field .selectField {
-    width: auto;
-    padding: 10px;
-    font-size: 18px;
-    outline: none;
-    margin-bottom: 2px;
-    background-color: white;
-    border: 1px dashed blue;
+  width: auto;
+  padding: 10px;
+  font-size: 18px;
+  outline: none;
+  margin-bottom: 2px;
+  background-color: white;
+  border: 1px dashed blue;
 }
 
 /* stylig for files */
 .input_field .Dfile {
-    width: 70%;
-    font-size: 15px;
-    margin: 6px 10%;
-    color: rgb(112, 131, 158);
-    outline: none;
+  width: 70%;
+  font-size: 15px;
+  margin: 6px 10%;
+  color: rgb(112, 131, 158);
+  outline: none;
 }
 
-.Dfile::-webkit-file-upload-button{
-    background-color: var(--HFbgcolor);
-    color: var(--HFcolor);
-    padding: 6px;
-    border-radius: 30px;
-    cursor: pointer;
-}.Dfile::-webkit-file-upload-button:hover{color: var(--hovercolor);}
+.Dfile::-webkit-file-upload-button {
+  background-color: var(--HFbgcolor);
+  color: var(--HFcolor);
+  padding: 6px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.Dfile::-webkit-file-upload-button:hover {
+  color: var(--hovercolor);
+}
 
 /* more Document Upload */
 #moreDocument {
-    display: none;
+  display: none;
 }
 
 /* city syling */
 .inputs[name="city/town/vill"]::placeholder {
-    font-size: 0.86rem;
+  font-size: 0.86rem;
 }
 
 /* styling for state select */
 #state {
-    width: 90%;
+  width: 90%;
 }
 
 /* caste styling */
 #casteDoc {
-    display: none;
+  display: none;
 }
 
 /* required field star  styling */
-.red{color:red;}
+.red {
+  color: red;
+}
 
 /* error massage styling start From Here */
 .input_field div {
-    color: red;
-    font-size: 14px;
-    visibility: hidden;
+  color: red;
+  font-size: 14px;
+  visibility: hidden;
 }
 
 .erricon i {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .erricon .fa-circle-check,
 .erricon .fa-circle-xmark {
-    font-size: 14px;
-    display: none;
+  font-size: 14px;
+  display: none;
 }
 
 /* when give Any error */
 .input_field.error div {
-    visibility: visible;
+  visibility: visible;
 }
 
 .input_field.error .erricon .fa-circle-xmark {
-    display: inline;
+  display: inline;
 }
 
 .input_field.error .inputs {
-    width: 90%;
-    border-color: #f54343;
+  width: 90%;
+  border-color: #f54343;
 }
 
 .input_field.error #DoB {
-    border-color: #f54343;
-    width: 70%;
+  border-color: #f54343;
+  width: 70%;
 }
 
 .input_field.error .selectField {
-    border-color: #f54343;
+  border-color: #f54343;
 }
 
 /* when give success */
 .input_field.success .erricon .fa-circle-check {
-    display: inline-block;
+  display: inline-block;
 }
 
 .input_field.success .inputs {
-    border-color: #1cde23;
-    width: 90%;
+  border-color: #1cde23;
+  width: 90%;
 }
 
 .input_field.success #DoB {
-    border-color: #1cde23;
-    width: 70%;
+  border-color: #1cde23;
+  width: 70%;
 }
 
 .input_field.success .selectField {
-    border-color: #1cde23;
+  border-color: #1cde23;
 }
 
 /* multistep form styling */
 .steps {
-    transition: all 1s;
-    width: 100%;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 10px;
-    left: 0;
+  transition: all 1s;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 10px;
+  left: 0;
 }
 
 .formBtns {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 #submitBtn {
-    display: none;
+  display: none;
 }
 
 /* AfterSubmit give a loading animation */
 #AfterSubmit {
-    background-image: url("../media/images/submitload.webp");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    display: none;
-    pointer-events: none;
+  background-image: url("../media/images/submitload.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: none;
+  pointer-events: none;
 }

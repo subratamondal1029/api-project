@@ -1,8 +1,35 @@
 // disclaimer hide function start from Here
 
-document.querySelector("#disclaimer_btn .btn").addEventListener("click", () => {
-    document.getElementById("disclaimer").style.display = "none";
-});
+// Function to prevent scrolling
+function preventScroll(e) {
+    e.preventDefault();
+}
+
+const disclaimerContainer = document.getElementById("disclaimerContainer")
+const disclaimerOverlay =document.getElementById('disclaimerOverlay')
+window.onload = () =>{
+    document.getElementById('loading').style.display = "none"
+    disclaimerContainer.classList.add('show')
+
+    // Add event listeners to prevent scrolling
+window.addEventListener('wheel', preventScroll, { passive: false });
+window.addEventListener('touchmove', preventScroll, { passive: false });
+} 
+
+const closeBtns = document.querySelectorAll(".closeBtn")
+closeBtns.forEach((close) =>{
+    close.addEventListener("click", () => {
+       disclaimerContainer.classList.remove('show')
+       setTimeout(() => disclaimerOverlay.style.display = "none", 500)
+
+    //    remove scrolling prevantion
+        window.removeEventListener('wheel', preventScroll);
+        window.removeEventListener('touchmove', preventScroll);
+    });
+})
+
+
+
 
 // form switching function start from Here
 

@@ -42,7 +42,7 @@ body {
 header {
   position: fixed;
   top: 0;
-  z-index: 50;
+  z-index: 10;
 }
 
 header nav {
@@ -141,7 +141,7 @@ width: 100%;
   width: 50vw;
   height: 55vh;
   padding: 10px;
-  transition: left 1s;
+  transition: left .5s ease-in;
 }
 
 #sidenav ul {
