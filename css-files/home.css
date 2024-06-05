@@ -8,31 +8,32 @@
 /* welcome section styling */
 
 .heading_sec {
-    background: url(../media/images/welcome.webp);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 500px 100%;
-    margin-top: 35px;
-    width: 100vw;
-    margin-block: 41px;
+    margin-top: 50px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 50px;
+}
+
+.heading_sec img{
+    width: 75%;
+    object-fit: contain;
 }
 
 .welcome_con {
-    overflow-x: hidden;
     font-size: 25px;
     font-family: "Tilt Prism Display",serif, emoji, sans-serif;
     width: 53vw;
-    height: 100%;
     text-align: center;
-    margin: 55px 0px 20px 70px;
+    margin-left: 25px;
     padding: 12px 2px;
 }
 .welcome_con p{text-align: justify ;}
 .wellcome {
-    width: 550px;
-    margin: auto;
     text-align: start;
-    padding: 6px 6px;
+    padding: 6px;
     font-size: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -66,7 +67,7 @@
 #cataheading {
     width: 100%;
 text-align: center;
-    margin-block: 25px;
+    margin-bottom: 30px;
     font-size: 30px;
     font-weight: bold;
 }

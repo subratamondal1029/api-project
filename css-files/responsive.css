@@ -1,4 +1,22 @@
 /* for tablet and mobile devices */
+@media screen and (max-width: 1088px) {
+    .heading_sec{
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 11%;
+        padding-bottom: 0;
+        /* margin-top: 35px; */
+    }
+
+    .heading_sec img{
+        width: 100%;
+    }
+
+    .heading_sec .welcome_con{
+        width: 90%;
+    }
+}
+
 @media screen and (max-width: 690px) {
     /* styling nav bar for responsive */
 
@@ -15,29 +33,8 @@
     #menu {
         display: block;
     }
-    footer nav {
-        flex-direction: column;
-    }
-    footer .link {
-        margin-inline: 92px;
-    }
 
-    /* styling the welcome section to tablet and device responsive */
 
-    .heading_sec {
-        background: none;
-        width: 100vw;
-        height: 100%;
-    }
-    .welcome_con {
-        font-size: 22px;
-        width: 85%;
-        height: 60%;
-        margin: 20px 50px 10px 1px;
-    }
-    .welcome_con .auto-text {
-        font-size: 19px;
-    }
     .cata_container {
         margin: 6px;
     }
@@ -46,11 +43,7 @@
       font-size: 15px;
     }
    
-   #cataSelects{
-     width: 50%;
-   }
 
-   /* styling courses show and hide for small devices */
    div#foldicon{
     display: block;
    }
