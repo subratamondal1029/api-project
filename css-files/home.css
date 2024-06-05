@@ -29,6 +29,7 @@
     text-align: center;
     margin-left: 25px;
     padding: 12px 2px;
+    overflow: visible;
 }
 .welcome_con p{text-align: justify ;}
 .wellcome {

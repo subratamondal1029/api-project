@@ -20,25 +20,34 @@
 @media screen and (max-width: 690px) {
     /* styling nav bar for responsive */
 
+    
+    .heading_sec{
+        height: 90vh;
+    }
+    
     header nav{padding: 10px;}
-  
-    #sidenav ul li:last-child a{
-      font-size: 20px;
+    
+    #sidenav ul li a{
+        font-size: 23px;
     }
 
     .nav-hide {
         display: none;
     }
-
+    
     #menu {
         display: block;
     }
-
-
-    .cata_container {
-        margin: 6px;
+    
+    #catagories .cata_container {
+       box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
     }
     
+    
+    #catagories .card-button{
+        opacity: 1;
+        transform: translate(-50%, 50%);
+    }
     .inputs::placeholder{
       font-size: 15px;
     }
@@ -65,6 +74,14 @@
 
 /* only for mobile devices */
 @media only screen and (max-width: 455px) {
+
+    .welcome_con{
+        font-size: 19px;
+    }
+
+    .auto-text{
+        font-size: 19px;
+    }
 
     footer{
         flex-direction: column;
