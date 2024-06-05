@@ -65,6 +65,10 @@
 
 /* only for mobile devices */
 @media only screen and (max-width: 455px) {
+
+    footer{
+        flex-direction: column;
+    }
     
     #disclaimer_content ul li p{
         font-size: 25px;
