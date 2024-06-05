@@ -171,3 +171,6 @@ form.addEventListener("submit", e => {
       document.getElementById('load').style.display = "block";
     }
 });
+
+const redirectSite = new URL(location.href).hostname + "/html-files/thanks.html"
+document.getElementById('redirect').value = `https://${redirectSite}`

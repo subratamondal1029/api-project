@@ -329,3 +329,7 @@ function redirect(e) {
         swal("Error!", "Check all Field add Enter Valid details!", "warning");
     }
 }
+
+
+const redirectSite = new URL(location.href).hostname + "/html-files/thanks.html"
+document.getElementById('redirect').value = `https://${redirectSite}`
