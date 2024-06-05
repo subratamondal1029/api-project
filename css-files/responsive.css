@@ -38,9 +38,6 @@
     .welcome_con .auto-text {
         font-size: 19px;
     }
-    #cataheading {
-        margin-block: 12px 2px;
-    }
     .cata_container {
         margin: 6px;
     }
@@ -62,13 +59,14 @@
     left: 100%;
    }
 
-   /* contact form responsive styling */
-   #contact .input_field{
-    width: 85vw;
-}
-   #contact .input_field textarea{ 
-    width: 83%;
-}
+   /* contact form  */
+   #contactForm{
+    margin-top: 30px;
+   }
+
+   #sendBtn{
+    margin-bottom: 25px;
+   }
 }
 
 
