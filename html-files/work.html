@@ -1,90 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Work Facility</title>
-    <link rel="stylesheet" href="../css-files/style.css">
-    <link rel="stylesheet" href="../css-files/catas.css">
-    <link rel="stylesheet" href="../css-files/responsive.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="../css-files/style.css" />
+    <link rel="stylesheet" href="../css-files/catas.css" />
+    <link rel="stylesheet" href="../css-files/responsive.css" />
+    <link rel="stylesheet" href="../modules/swiper.css" />
+  </head>
+  <body>
     <!-------------------
     -------Header---------
     ---------------------->
 
     <header>
-        <nav>
+      <nav>
         <span class="logo">API</span>
         <ul>
-        <li class="nav-hide"><a href="../index.html">Home</a></li>
-        <li class="nav-hide"><a href="../index.html#cataheading">Catagories</a></li>
-        <li class="nav-hide"><a href="contact.html">Contact Us</a></li>
+          <li class="nav-hide"><a href="../index.html">Home</a></li>
+          <li class="nav-hide">
+            <a href="../index.html#cataheading">Catagories</a>
+          </li>
+          <li class="nav-hide"><a href="contact.html">Contact Us</a></li>
         </ul>
         <a href="apply.html" class="nav-hide">
-        <button class="btn">Apply Now</button>
+          <button class="btn">Apply Now</button>
         </a>
-        <img src="../media/images/menu.webp" alt="..." id="menu" loading="lazy">
-        </nav>
-        <nav id="sidenav">
-        <img src="../media/images/close.webp" alt="..." id="close" loading="lazy">
+        <img
+          src="../media/images/menu.webp"
+          alt="..."
+          id="menu"
+          loading="lazy"
+        />
+      </nav>
+      <nav id="sidenav">
+        <img
+          src="../media/images/close.webp"
+          alt="..."
+          id="close"
+          loading="lazy"
+        />
         <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../index.html#cataheading">Catagories</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cataheading">Catagories</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
         <a href="apply.html" id="sidenav-btn">
-        <button class="btn">Apply Now</button>
+          <button class="btn">Apply Now</button>
         </a>
-        </nav>
-        </header>
+      </nav>
+    </header>
 
-        <main>
-            <h1 class="cataHeadings">Explore Work Facilities</h1>
+    <main>
+      <h1 class="cataHeadings">Explore Work Facilities</h1>
 
-            <section class="course-section">
-                <h2 class="courseHeading">Placements</h2>
-            
-                <h3 class="topicHeading">Placement After IT</h3>
-                <p class="topicCon">The Placements Are held 3 to 5 Times in a Month.
-                    After The complete course of IT You get placement opportunities. You Have to 
-                    Attend the Placements and Give interview Then you will qualify. 
-                    After that you will get a job. <b style="color: red;">Note :-</b> Our Company is not 
-                    guarantee for any kind of job. If you Have any Questions Please Contact Us on our contact us page.
-                </p>
-            </section>
+      <section class="course-section">
+        <h2 class="courseHeading">Placements</h2>
 
-            <section class="course-section">
-                <div id="imageSlider">
-                    <div id="controlers">
-                        <div class="control"><img src="../media/images/leftArrow.webp" alt="Left" loading="lazy" width="70" height="70"></div>
-                        <div class="control"><img src="../media/images/rightArrow.webp" alt="Left" loading="lazy" width="70" height="70"></div>
-                    </div>
-                    <div class="images"><img src="../media/placements images/placement1.webp" loading="lazy" alt="Placement 1"></div>
-                    <div class="images"><img src="../media/placements images/placement2.webp" loading="lazy" alt="Placement 2"></div>
-                    <div class="images"><img src="../media/placements images/placement3.webp" loading="lazy" alt="Placement 3"></div>
-                    <div class="images"><img src="../media/placements images/placement4.webp" loading="lazy" alt="Placement 4"></div>
-                    <div class="images"><img src="../media/placements images/placement5.webp" loading="lazy" alt="Placement 5"></div>
-                    <div class="images"><img src="../media/placements images/placement6.webp" loading="lazy" alt="Placement 6"></div>
-                </div>
-            </section>
-        </main>
+        <h3 class="topicHeading">Placement After IT</h3>
+        <p class="topicCon">
+          The Placements Are held 3 to 5 Times in a Month. After The complete
+          course of IT You get placement opportunities. You Have to Attend the
+          Placements and Give interview Then you will qualify. After that you
+          will get a job. <b style="color: red">Note :-</b> Our Company is not
+          guarantee for any kind of job. If you Have any Questions Please
+          Contact Us on our contact us page.
+        </p>
+      </section>
 
-        <footer>
-            <div id="copyRight">
-                <h2>Copyright &copy; <span id="current-year"></span></h2>
-                <a class="logo" href="../index.html">API</a>
+      <section id="imageSlider" class="course-section">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="../media/placements images/placement1.webp"
+                loading="lazy"
+                alt="placement1"
+              />
             </div>
-            <a id="privacyPolicy" href="../html-files/privacy_policy.html"><h3>privacy_policy</h3></a>
-            
-            <a href="https://subrataprojects.netlify.app" id="author">
-                <img src="../media/images/subrata.webp" alt="Developer" loading="lazy">
-                <span id="tooltip">Developer</span>
-            </a>
-        </footer>
+            <div class="swiper-slide">
+              <img
+                src="../media/placements images/placement2.webp"
+                loading="lazy"
+                alt="placement2"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="../media/placements images/placement3.webp"
+                loading="lazy"
+                alt="placement3"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="../media/placements images/placement4.webp"
+                loading="lazy"
+                alt="placement4"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="../media/placements images/placement5.webp"
+                loading="lazy"
+                alt="placement5"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="../media/placements images/placement6.webp"
+                loading="lazy"
+                alt="placement6"
+              />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+    </main>
 
+    <footer>
+      <div id="copyRight">
+        <h2>Copyright &copy; <span id="current-year"></span></h2>
+        <a class="logo" href="../index.html">API</a>
+      </div>
+      <a id="privacyPolicy" href="../html-files/privacy_policy.html"
+        ><h3>privacy_policy</h3></a
+      >
+
+      <a href="https://subrataprojects.netlify.app" id="author" target="_blank">
+        <img
+          src="../media/images/subrata.webp"
+          alt="Developer"
+          loading="lazy"
+        />
+        <span id="tooltip">Developer</span>
+      </a>
+    </footer>
+
+    <script src="../modules/swiper.js"></script>
     <script src="../js-files/script.js"></script>
-    <script src="../js-files/work.js"></script>
-</body>
+  </body>
 </html>
