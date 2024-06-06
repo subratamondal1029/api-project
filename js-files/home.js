@@ -15,8 +15,8 @@ function changeActive(){
     const homeBtns = document.querySelectorAll('.home')
     const cataBtns = document.querySelectorAll('.cata')
 
-
-    if (rect.top <= 72) {
+    
+    if (rect.top <= 135) {
       for (let i = 0; i < homeBtns.length; i++) {
         const homeBtn = homeBtns[i];
         const cataBtn = cataBtns[i];
