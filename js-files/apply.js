@@ -29,105 +29,8 @@ closeBtns.forEach((close) =>{
 })
 
 
-
-
-// form switching function start from Here
-
-let submitBtn = document.getElementById("submitBtn");
-Next = document.getElementById("nextBtn");
-const Back = document.getElementById("backBtn");
-
-Next.addEventListener("click", () => {
-    controler(1);
-});
-Back.addEventListener("click", () => {
-    controler(-1);
-});
-
-// function for switching form step
-let step = 0;
-function controler(s) {
-    step = step + s;
-    stepchange();
-    function stepchange() {
-        stepswitch(step);
-    }
-}
-stepswitch(step);
-
-function stepswitch(stepNum) {
-    let steps = document.getElementsByClassName("steps");
-    if (stepNum == steps.length) {
-        stepNum = steps.length - 1;
-        step = steps.length - 1;
-        Next.style.display = "none";
-    } else if (stepNum < 0) {
-        stepNum = 0;
-        step = 0;
-    }
-
-    // btn show and hide
-    if (stepNum == 0) {
-        Back.style.display = "none";
-    } else {
-        Back.style.display = "inline-block";
-    }
-
-    if (stepNum == steps.length - 1) {
-        Next.style.display = "none";
-        submitBtn.style.display = "inline-block";
-    } else {
-        Next.style.display = "inline-block";
-        submitBtn.style.display = "none";
-    }
-
-    // form title
-    let formTitle = document.getElementById("formtitle");
-    switch (stepNum) {
-        case 0:
-            formTitle.innerHTML = "Personal Information";
-            break;
-        case 1:
-            formTitle.innerHTML = "Education Qualification";
-            break;
-        case 2:
-            formTitle.innerHTML = "Address";
-            break;
-        case 3:
-            formTitle.innerHTML = "Required Document";
-            break;
-        case 4:
-          formTitle.innerHTML = "Aditional Details";
-            break;
-    }
-
-    // changing the left value of steps
-    for (let y of steps) {
-        y.style.position = "absolute";
-        y.style.left = "130vw";
-    }
-
-    steps[stepNum].style.position = "relative";
-    steps[stepNum].style.left = "0";
-
-}
-
 // form validation
 
-// catagories validation
-
-const catagories = document.getElementById("cataSelects");
-
-catagories.addEventListener("change", () => {
-    let cataVal = catagories.value.toUpperCase();
-    if (catagories.value == "select") {
-        document.getElementById("mainForm").style.visibility = "hidden";
-    } else {
-        let formSubject = document.getElementById("formSubject");
-        formSubject.value = "New Application from Smart People! || " + cataVal;
-        document.getElementById("mainForm").style.visibility = "visible";
-    }
-});
 
 // when the field is Not give any error
 
@@ -156,7 +59,7 @@ function onError(element, msg) {
 let required = document.getElementsByClassName("req");
 for (let i = 0; i < required.length; i++) {
     required[i].addEventListener("input", () => {
-        requiredVal = required[i].value.trim();
+      const requiredVal = required[i].value.trim();
 
         if (requiredVal == "") {
             onError(required[i], " is Required");
@@ -203,7 +106,7 @@ email.addEventListener("input", () => {
         /^[A-Za-z0-9]{3,20}[._-]{0,1}[A-Za-z0-9]{1,8}[A-Za-z]*[@][A-Za-z]*[\.][a-z]{2,4}[.A-Za-z]{0,5}$/;
     let emailVal = email.value.trim();
 
-    if (emailVal == "") {
+    if (emailVal === "") {
         onError(email, " is Required");
     } else if (!emailPattern.test(emailVal)) {
         onError(email, " is Invalid");
@@ -284,32 +187,6 @@ function FileValidate(e) {
     }
 }
 
-//Validation More Document
-const addMoreBtn = document.getElementById("UploadMore");
-addMoreBtn.addEventListener("click", () => {
-    let moreUploadDocument = document.getElementById("moreDocument");
-
-    addMoreBtn.style.display = "none";
-    moreDocument.style.display = "inline-block";
-});
-
-// Step 3 Validate
-
-//country Validate
-let country = document.getElementById("country");
-country.addEventListener("change", () => {
-    let countryVal = country.value;
-
-    if (countryVal == "") {
-        onError(country, " is Required");
-    } else if (countryVal == "IN_R") {
-        onSuccess(country);
-    } else {
-        onError(country, " India Is only Available");
-        document.getElementById("RegionForm").style.display = "none";
-    }
-});
-
 //pin code Validate
 let pin = document.getElementById("pin");
 pin.addEventListener("input", () => {
@@ -324,39 +201,8 @@ pin.addEventListener("input", () => {
     }
 });
 
-//step4 validation
-
-//caste validate
-let caste = document.getElementById("caste");
-caste.addEventListener("input", () => {
-    let casteVal = caste.value;
-    let casteDoc = document.getElementById("casteDoc");
-
-    if (casteVal == "") {
-        casteDoc.style.display = "none";
-    } else {
-        casteDoc.style.display = "inline-block";
-    }
-});
-
 // onsubmit validation || main validation
 submitBtn.addEventListener("click", redirect);
-
-function redirect(e) {
-    let formContainer = document.getElementsByClassName("val").length;
-    let successField = document.querySelectorAll(
-        ".input_field.val.success"
-    ).length;
-
-    if (formContainer === successField) {
-        submitBtn.style.display = "none";
-        document.getElementById("AfterSubmit").style.display = "inline-block";
-    } else {
-        e.preventDefault();
-        swal("Error!", "Check all Field add Enter Valid details!", "warning");
-    }
-}
-
 
 const redirectSite = new URL(location.href).hostname + "/html-files/thanks.html"
 document.getElementById('redirect').value = `https://${redirectSite}`

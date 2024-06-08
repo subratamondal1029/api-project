@@ -3,6 +3,21 @@
 
 /* styling apply  */
 
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #e8e8e8;
+}
+
+main {
+  margin: 0;
+  height: 84%;
+  width: 100%;
+  padding-top: 67px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
 /* disclaimer styling */
 #disclaimerOverlay {
   background: transparent;
@@ -100,232 +115,220 @@
 
 /* form styling start  Here  */
 
-#formtitle {
-  text-align: center;
-  padding: 10px;
-  border-bottom: 1px solid grey;
-  width: 80%;
-  margin: 3% auto;
-  font-size: 28px;
-}
-
-/* Catagories select option */
-
-#cataSelect {
-  text-align: center;
-  margin: 6px;
-  outline: none;
-}
-
-#cataSelects {
-  border: 2px dashed rgb(76, 49, 49);
-  background-color: rgb(231, 231, 244);
-  color: blue;
-  font-size: 19px;
-  padding: 10px;
-  outline: none;
-}
-
-label {
-  font-size: 20px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 450;
-  margin-bottom: 3px;
-}
-
-#mainForm {
-  position: relative;
+form {
   width: 90%;
-  min-height: 70vh;
-  margin: auto;
-  border-radius: 16px;
+  max-width: 650px;
+  position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  visibility: hidden;
-  overflow: hidden;
-  margin-bottom: 20px;
-  /* border: 2px solid green; */
-}
-/* input field styling startForm Here */
-.input_field {
-  margin: 13px auto;
-  width: 34%;
-}
-.input_field .inputs {
-  border: 1.5px solid #e3dede;
-  transition: all 0.6s ease;
+  margin-block: 100px 30px;
+  margin-inline: auto;
 }
 
-.input_field .inputs:focus {
-  border-color: black;
+#formNavigation {
+  position: fixed;
+  top: 76px;
+  left: 25%;
+  width: 50%;
+  max-width: 580px;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-block: 7px;
+  border-radius: 12px;
+  z-index: 5;
 }
 
-.inputs {
+#formNavigation a {
+  font-size: 1em;
+  height: 60px;
+  color: #000;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 60px;
+  flex-basis: 150px;
+  box-sizing: border-box;
+  padding-inline: 11px;
+}
+
+#formNavigation a:first-child {
+  font-size: 0.9em;
+  background-color: #fff;
+}
+
+#formNavigation a:hover {
+  background-color: #ffff;
+}
+
+.fieldContainer {
   width: 100%;
-  padding: 10px;
-  font-size: 17px;
-  outline: none;
-  /* border: 1.5px solid black; */
-  margin-bottom: 2px;
-  display: inline-block;
-}
-
-#DoB {
-  width: 100%;
-  padding: 10px;
-  font-size: 17px;
-  outline: none;
-  margin-bottom: 2px;
-  margin-top: 5px;
-  /* background-color: white; */
-  border: 1px dashed blue;
-}
-
-/* styling for select option */
-.input_field .selectField {
-  width: auto;
-  padding: 10px;
-  font-size: 18px;
-  outline: none;
-  margin-bottom: 2px;
-  background-color: white;
-  border: 1px dashed blue;
-}
-
-/* stylig for files */
-.input_field .Dfile {
-  width: 70%;
-  font-size: 15px;
-  margin: 6px 10%;
-  color: rgb(112, 131, 158);
-  outline: none;
-}
-
-.Dfile::-webkit-file-upload-button {
-  background-color: var(--HFbgcolor);
-  color: var(--HFcolor);
-  padding: 6px;
-  border-radius: 30px;
-  cursor: pointer;
-}
-.Dfile::-webkit-file-upload-button:hover {
-  color: var(--hovercolor);
-}
-
-/* more Document Upload */
-#moreDocument {
-  display: none;
-}
-
-/* city syling */
-.inputs[name="city/town/vill"]::placeholder {
-  font-size: 0.86rem;
-}
-
-/* styling for state select */
-#state {
-  width: 90%;
-}
-
-/* caste styling */
-#casteDoc {
-  display: none;
-}
-
-/* required field star  styling */
-.red {
-  color: red;
-}
-
-/* error massage styling start From Here */
-.input_field div {
-  color: red;
-  font-size: 14px;
-  visibility: hidden;
-}
-
-.erricon i {
-  overflow: hidden;
-}
-
-.erricon .fa-circle-check,
-.erricon .fa-circle-xmark {
-  font-size: 14px;
-  display: none;
-}
-
-/* when give Any error */
-.input_field.error div {
-  visibility: visible;
-}
-
-.input_field.error .erricon .fa-circle-xmark {
-  display: inline;
-}
-
-.input_field.error .inputs {
-  width: 90%;
-  border-color: #f54343;
-}
-
-.input_field.error #DoB {
-  border-color: #f54343;
-  width: 70%;
-}
-
-.input_field.error .selectField {
-  border-color: #f54343;
-}
-
-/* when give success */
-.input_field.success .erricon .fa-circle-check {
-  display: inline-block;
-}
-
-.input_field.success .inputs {
-  border-color: #1cde23;
-  width: 90%;
-}
-
-.input_field.success #DoB {
-  border-color: #1cde23;
-  width: 70%;
-}
-
-.input_field.success .selectField {
-  border-color: #1cde23;
-}
-
-/* multistep form styling */
-.steps {
-  transition: all 1s;
-  width: 100%;
-  padding: 15px;
+  /* position: absolute; */
+  min-height: 10px;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.fields {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fields input {
+  background-color: #ffffff;
+  box-shadow: 0px 25px 70px -12px #000000;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding: 12px 23px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.fields input:focus {
+  border: 1px inset #000000cc;
+}
+
+.fields .errorField {
+  color: #f22215;
+  display: none;
+}
+
+/* handling error and success */
+.fields.success input {
+  border: 1px solid #29df46;
+}
+
+.fields.error input {
+  border: 1px solid #f22215;
+}
+
+.fields.error .errorField {
+  display: block;
+}
+
+/* removing incress Button from number Field */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.fields select {
+  background-color: #ffffff;
+  box-shadow: 0px 25px 70px -12px #000000cc;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding: 12px 23px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.fields.selectField{
+  position: relative;
+} 
+
+.fields .info{
   position: absolute;
-  top: 10px;
-  left: 0;
-}
-
-.formBtns {
-  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 4px;
+  left: -23px;
+  top: 14px;
 }
 
-#submitBtn {
+.info i{
+  cursor: help;
+}
+
+.info .tooltip{
+  font-size: 10px;
+  padding: 3px 5px;
+  border-radius: 4px;
+  color: white;
+  background-color: rgba(0, 0, 0, 1);
+  line-height: 13px;
   display: none;
 }
 
-/* AfterSubmit give a loading animation */
-#AfterSubmit {
-  background-image: url("../media/images/submitload.webp");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  display: none;
-  pointer-events: none;
+.fields .info i:hover + .tooltip{
+  display: block;
+}
+
+.fields #genderField{
+  background-color: #f5f5f594;
+  padding: 17px 14px; 
+  position: relative;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, .06);
+}
+
+#genderField input[type="radio"]{
+  position: absolute;
+  visibility: hidden;
+}
+
+#genderField label{
+  cursor: pointer;
+  background-color: transparent;
+  padding: 10px 13px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+#genderField label:hover{
+  background-color: #ffffff;
+
+}
+
+#genderField input[type="radio"]:checked + label{
+  background: #ffffff;
+}
+
+#formBtn{
+  margin-top: 50px;
+  width: 100%;
+}
+
+#formBtn button{
+  width: 100%;
+  box-sizing: border-box;
+  padding-block: 14px;
+  color: white;
+  background-color: #767676;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all .3s ease-out;
+}
+
+#formBtn button:hover{
+  background-color: rgba(0, 0, 0, 0.8);
 }
