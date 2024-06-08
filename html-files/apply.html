@@ -46,41 +46,34 @@
                                 ------------------->
   <main>
 
-    <!-----------------
-                                                    ----- Disclaimer----
-                                                    -------------------->
+              <!-----------------
+               ----- Disclaimer----
+               -------------------->
 
-<div id="disclaimerOverlay">
-  <div id="loading">
-    <img src="../media/images/homeLoading.gif" alt="load">
-  </div>
-  <div id="disclaimerContainer">
-    <button class="closeBtn icon"><img src="../media/images/close.webp" alt="close"></button>
-    <button class="closeBtn btn">ok</button>
-
-    <ul id="disclaimers">
-      <li class="disclaimer">Catagorie Must Be selected Then You can fill the Application.</li>
-      <li class="disclaimer">Mark of (*) must required.</li>
-      <li class="disclaimer">Supported Document Formates (jpg, png, jpeg).</li>
-      <li class="disclaimer">fill Details Must Be at least 3 word.</li>
-      <li class="disclaimer">All Filled Details Must be original.</li>
-      <li class="disclaimer">Recheck Details Before Submit.</li>  
-    </ul>
-  </div>
-</div>
-    <!--------------------
-                                                             ------form title------
-                                                            ---------------------->
-
-    <div id="formtitle">
-      Personal Details
+  <!-- <div id="disclaimerOverlay">
+    <div id="loading">
+      <img src="../media/images/homeLoading.gif" alt="load">
     </div>
+    <div id="disclaimerContainer">
+      <button class="closeBtn icon"><img src="../media/images/close.webp" alt="close"></button>
+      <button class="closeBtn btn">ok</button>
 
-    <!--------------------
-                                                             ------Main form------
-                                                            ---------------------->
+      <ul id="disclaimers">
+        <li class="disclaimer">Catagorie Must Be selected Then You can fill the Application.</li>
+        <li class="disclaimer">Mark of (*) must required.</li>
+        <li class="disclaimer">Supported Document Formates (jpg, png, jpeg).</li>
+        <li class="disclaimer">fill Details Must Be at least 3 word.</li>
+        <li class="disclaimer">All Filled Details Must be original.</li>
+        <li class="disclaimer">Recheck Details Before Submit.</li>  
+      </ul>
+    </div>
+  </div> -->
 
-    <div id="cataSelect">
+              <!--------------------
+                 ------Main form------
+                ---------------------->
+
+    <!-- <div id="cataSelect">
       <label for="cataSelects">Catagories: </label>
       <select name="Catagories" id="cataSelects">
         <option value="select">Select</option>
@@ -88,457 +81,118 @@
         <option value="health">Health</option>
         <option value="personality">Personality Development</option>
       </select>
-    </div>
+    </div> -->
+
     <!--     <div id="form"> -->
-    <form action="https://formsubmit.co/7dd6a70f45484fe242a932229f192b09" method="post" enctype="multipart/form-data" id="mainForm">
+      <!-- <form action="https://formsubmit.co/7dd6a70f45484fe242a932229f192b09" method="post" enctype="multipart/form-data" id="mainForm"> -->
+        <form action="https://formsubmit.co/7dd6a70f45484fe242a932229f192b09" method="post" enctype="multipart/form-data" id="mainForm" autocomplete="off">
+          
+          <!---------------------------------
+          ---some property form form submit----
+          ----------------------------------->
+          <!-- <div>
+            <input type="hidden" name="_subject" value="New Application from API!" id="formSubject">
+            <input type="hidden" name="_blacklist" value="spammy pattern, banned term, phrase">
+            <input type="hidden" name="_autoresponse" value="Thanks for Giving Your Details Our team contact you shortly!">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" id="redirect">
+            </div> -->
+            
+            
+            <!-- navigation -->
+            <div id="formNavigation">
+              <a href="#personalDetails" class="formLinks">personal Details</a>
+              <a href="#" class="formLinks">Address</a>
+              <a href="#" class="formLinks">Additional Info</a>
+             </div>
 
-      <!---------------------------------
-                                                        ---some property form form submit----
-                                                        ----------------------------------->
-      <div>
-        <input type="hidden" name="_subject" value="New Application from API!" id="formSubject">
-        <input type="hidden" name="_blacklist" value="spammy pattern, banned term, phrase">
-        <input type="hidden" name="_autoresponse" value="Thanks for Giving Your Details Our team contact you shortly!">
-        <input type="hidden" name="_template" value="table">
+                  <!-----------------------------------
+                   --------main form start from Here----
+                   ------------------------------------->
 
-        <!-- change the value of redirect to the next page -->
-        <input type="hidden" name="_next" id="redirect">
-      </div>
-      <!-----------------------------------
-                                                                  --------main form start from Here----
-                                                                  ------------------------------------->
-      <!-- Step 1 -->
-      <div class="steps">
-        <div class="input_field val">
-          <input type="text" name="Name" placeholder="Enter your Full Name *" class="inputs alpha req" autocomplete="off">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
+      <section id="personalDetails" class="fieldContainer">
+
+        <div class="fields">
+          <input type="text" name="Name" id="name" placeholder="Full Name *" class="req alpha">
+          <div class="errorField">Error Here</div>
+        </div>
+        
+        <div class="fields">
+          <input type="text" name="Father" id="father" placeholder="Father Name *" class="req alpha">
+          <div class="errorField">Error Here</div>
         </div>
 
-        <div class="input_field val">
-          <input type="text" name="Father Name" placeholder="Enter your Father Name *" class="inputs alpha req" autocomplete="off">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
+        <div class="fields">
+          <input type="text" name="Mother" id="mother" placeholder="Mother Name" class="req alpha">
+          <div class="errorField">Error Here</div>
         </div>
 
-        <div class="input_field">
-          <input type="text" name="Mother Name" placeholder="Enter your Mother Name" class="inputs" autocomplete="off">
+        <div class="fields">
+          <input type="number" name="Phone" id="phone" placeholder="Phone No. *" class="req">
+          <div class="errorField">Error Here</div>
         </div>
 
-        <div class="input_field val">
-          <label for="DoB">Date of Birth : <span class="red">*</span> </label>
-          <input type="date" name="Date of Birth" id="DoB">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i></span>
-          <div>
-            Error Here
-          </div>
+        <div class="fields">
+          <input type="email" name="Email" id="email" placeholder="Email Id. *" class="req">
+          <div class="errorField">Error Here</div>
         </div>
 
-        <div class="input_field val">
-          <input type="number" name="Phone No" placeholder="Enter your phone No. *" class="inputs" id="phone" autocomplete="off">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i></span>
-          <div>
-            Error Here
-          </div>
+        <div class="fields">
+          <input type="date" name="DateOfBirth" id="DoB" class="req">
+          <div class="errorField">Error Here</div>
         </div>
 
-        <div class="input_field val">
-          <input type="Email" name="Email Id" placeholder="Enter your Email Id *" class="inputs req" id="email" autocomplete="off">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i></span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field val">
-          <label for="gender">Gender : <span class="red">*</span> </label>
-          <select name="Gender" id="gender" class="req selectField">
-            <option value="" selected>select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i></span>
-          <div>
-            Error Here
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="steps">
-        <div class="input_field val">
-          <label for="EducationQ">Education Qualifitaion : <span class="red">*</span> </label><br>
-          <select name="Education Qualifitaion" id="EducationQ" class="req selectField">
-            <option value="" selected>Select</option>
+        <div class="fields selectField">
+          <select name="edicationQualification" id="edicationQualification">
+            <option value="">Education Qualification *</option>
             <option value="10th">10th Pass</option>
             <option value="12th">12th Pass</option>
-            <option value="BA_c">BA Pass</option>
-            <option value="BSC_c">BSC Pass</option>
-            <option value="BCOM_c">BCOM Pass</option>
-            <option value="BCA_c">BCA Pass</option>
-            <option value="MA_c">MA Pass</option>
-            <option value="MSC_c">MSC Pass</option>
-            <option value="MCOM_c">MCOM Pass</option>
-            <option value="MCA_c">MCA Pass</option>
-            <option value="NA_c">NA</option>
+            <option value="BA">BA</option>
+            <option value="BCA">BCA</option>
+            <option value="BSC">BSC</option>
+            <option value="BCOM">BCOM</option>
+            <option value="MA">MA</option>
+            <option value="MCA">MCA</option>
+            <option value="MSC">MSC</option>
+            <option value="MCOM">MCOM</option>
+            <option value="PHD">PHD</option>
+            <option value="NA">NA</option>
           </select>
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
+          <div class="errorField">Error Here</div>
+
+          <span class="info">
+            <i class="fa-solid fa-circle-info"></i>
+            <span class="tooltip">If You Can't Find Your Education Qualification Select NA</span>
           </span>
-          <small style="font-size: 7px; color: rgb(111,121,98);">If You Did't Get Your Education Qualifitaion Select "NA"</small>
-          <div>
-            Error Here
-          </div>
         </div>
 
-        <div class="input_field val">
-          <label for="EQcertificate">Education Qualifitaion Certificate : <span class="red">*</span> </label>
-          <input type="file" name="Education Certificate" class="Dreq Dfile" id="EQcertificate" accept="image/*">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
+        <div class="fields">
+          <div id="genderField">
+
+            <div class="gender">
+              <input type="radio" name="gender" value="male" id="male">
+              <label for="male">Male</label>
+            </div>
+
+            <div class="gender">
+              <input type="radio" name="gender" value="female" id="female">
+              <label for="female">Female</label>
+            </div>
+
+            <div class="gender">
+              <input type="radio" name="gender" value="other" id="other">
+              <label for="other">Other</label>
+            </div>
+            
+
           </div>
+          <div class="errorField">Error Here</div>
         </div>
+      </section>
 
-        <div class="input_field val">
-          <label for="MarkSheet">Mark Sheet : <span class="red">*</span> </label>
-          <input type="file" name="Mark Sheet" class="Dreq Dfile" id="MarkSheet" accept="image/*">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field val">
-          <label for="MarkSheet">Admit Card : <span class="red">*</span></label>
-          <input type="file" name="Admit Card" class="Dreq Dfile" id="Admit" accept="image/*">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field val">
-          <label for="MarkSheet">Registration Certificate : <span class="red">*</span></label>
-          <input type="file" name="Registration Certificate" class="Dreq Dfile" id="Registration" accept="image/*">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field More">
-          <label for="UploadMore" style="display: block;">Upload More Education Qualifitaion Document: </label>
-          <button class="btn" id="UploadMore" type="button"> &plus; Add More</button>
-
-          <input type="file" name="More Document" class="Dfile" id="moreDocument" accept="image/*" multiple>
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Step 3 -->
-      <div class="steps">
-
-        <div class="input_field val">
-          <label for="country">Country : <span class="red">*</span> </label>
-          <select name="Country" id="country" class="req selectField">
-            <option value="" selected>Select</option>
-            <option value="AF_R">Afghanistan</option>
-            <option value="BD_R">Bangladesh</option>
-            <option value="BT_R">Bhutan</option>
-            <option value="CN_R">China</option>
-            <option value="IN_R">India</option>
-            <option value="MV_R">Maldives</option>
-            <option value="MM_R">Myanmar</option>
-            <option value="NP_R">Nepal</option>
-            <option value="PK_R">Pakistan</option>
-            <option value="LK_R">Sri Lanka</option>
-          </select>
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i></span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field val">
-          <label for="state">State : <span class="red">*</span></label>
-          <select name="State" id="state" class="req selectField">
-            <option value="" selected>Select</option>
-            <option value="Andhra Pradesh">Andhra Pradesh</option>
-            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-            <option value="Assam">Assam</option>
-            <option value="Bihar">Bihar</option>
-            <option value="Chandigarh">Chandigarh</option>
-            <option value="Chhattisgarh">Chhattisgarh</option>
-            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-            <option value="Daman and Diu">Daman and Diu</option>
-            <option value="Delhi">Delhi</option>
-            <option value="Lakshadweep">Lakshadweep</option>
-            <option value="Puducherry">Puducherry</option>
-            <option value="Goa">Goa</option>
-            <option value="Gujarat">Gujarat</option>
-            <option value="Haryana">Haryana</option>
-            <option value="Himachal Pradesh">Himachal Pradesh</option>
-            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-            <option value="Jharkhand">Jharkhand</option>
-            <option value="Karnataka">Karnataka</option>
-            <option value="Kerala">Kerala</option>
-            <option value="Madhya Pradesh">Madhya Pradesh</option>
-            <option value="Maharashtra">Maharashtra</option>
-            <option value="Manipur">Manipur</option>
-            <option value="Meghalaya">Meghalaya</option>
-            <option value="Mizoram">Mizoram</option>
-            <option value="Nagaland">Nagaland</option>
-            <option value="Odisha">Odisha</option>
-            <option value="Punjab">Punjab</option>
-            <option value="Rajasthan">Rajasthan</option>
-            <option value="Sikkim">Sikkim</option>
-            <option value="Tamil Nadu">Tamil Nadu</option>
-            <option value="Telangana">Telangana</option>
-            <option value="Tripura">Tripura</option>
-            <option value="Uttar Pradesh">Uttar Pradesh</option>
-            <option value="Uttarakhand">Uttarakhand</option>
-            <option value="West Bengal">West Bengal</option>
-          </select>
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i></span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field val">
-          <input type="text" name="District" placeholder="Enter your District Name *" class="inputs alpha req" autocomplete="off">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field val">
-          <input type="text" name="city/town/vill" placeholder="Enter your city/town/vill Name *" class="inputs alpha req" autocomplete="off">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field val">
-          <input type="number" name="Pin Code" placeholder="Enter your Pin Code *" class="inputs" id="pin" autocomplete="off">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field val">
-          <input type="text" name="Land Mark" placeholder="Enter your land Mark *" class="inputs req" autocomplete="off">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field val">
-          <input type="text" name="P.O" placeholder="Enter your Post Office *" class="inputs req alpha" autocomplete="off">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field val">
-          <input type="text" name="P.S" placeholder="Enter your Police Station *" class="inputs req alpha" autocomplete="off">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 4 -->
-      <div class="steps">
-        <div class="input_field val">
-          <label for="IdentityProof">Proof Of Identity : <span class="red">*</span></label>
-          <input type="file" name="Proof Of Identity" class="Dreq Dfile" id="IdentityProof" accept="image/*">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field val">
-          <label for="photo">PassPort size Photo : <span class="red">*</span> </label>
-
-          <input type="file" name="Photo" class="Dreq Dfile" id="photo" accept="image/*">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field">
-          <label for="voterCard">Voter Card: </label>
-
-          <input type="file" name="Voter Card" class="Dfile" id="voterCard" accept="image/*">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field">
-          <label for="panCard">Pan Card: </label>
-
-          <input type="file" name="Pan Card" class="Dfile" id="panCard" accept="image/*">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field">
-          <label for="otherGovCard">Other Govt Card: </label>
-
-          <input type="file" name="Other Card" class="Dfile" id="otherGovCard" accept="image/*">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field">
-          <label for="caste">Caste: </label>
-
-          <select name="Caste" id="caste" class="selectField">
-            <option value="">Select</option>
-            <option value="sc">SC</option>
-            <option value="st">ST</option>
-            <option value="obc">OBC</option>
-            <option value="other">Other</option>
-          </select>
-
-          <input type="file" name="Caste Certificate" class="Dfile" id="casteDoc" accept="image/*">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-      </div>
-
-      <!-- step 5 -->
-      <div class="steps">
-        <div class="input_field val">
-          <input type="text" name="Place" placeholder="Enter Applied Place *" class="inputs req" autocomplete="off">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-        <div class="input_field val">
-          <label for="applyTime">Time Of Apply : <span class="red">*</span> </label>
-          <input type="datetime-local" name="Date and Time" placeholder="Enter time of apply *" id="applyTime" class="inputs req" autocomplete="off">
-          <span class="erricon">
-            <i class="fa-solid fa-circle-check" style="color: #1fdb35;"></i>
-            <i class="fa-solid fa-circle-xmark" style="color: #e51515;"></i>
-          </span>
-          <div>
-            Error Here
-          </div>
-        </div>
-
-      </div>
-
-      <!--form  buttons -->
-      <div class="formBtns">
-        <button type="button" class="btn" id="backBtn">Back</button>
-        <button type="button" class="btn" id="nextBtn">Next</button>
-        <button type="submit" class="btn" id="submitBtn">Submit</button>
-        <button type="button" class="btn" id="AfterSubmit"></button>
-      </div>
+     <div id="formBtn">
+      <button type="button">Next</button>
+     </div>
     </form>
   </main>
 
