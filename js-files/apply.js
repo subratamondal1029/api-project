@@ -99,7 +99,7 @@ phone.addEventListener("input", () => {
     }
 });
 
-//Validate Email
+//Validate Email FIXME: solve it
 let email = document.getElementById("email");
 email.addEventListener("input", () => {
     let emailPattern =
@@ -135,57 +135,7 @@ DoB.addEventListener("input", () => {
     }
 });
 
-// Step 2 validation
-
-//Validate File
-
-//Validate Required File
-let RequiredFile = document.getElementsByClassName("Dreq");
-for (let i = 0; i < RequiredFile.length; i++) {
-    RequiredFile[i].addEventListener("change", e => {
-        RequiredFile = e.target;
-
-        if (RequiredFile.value == "") {
-            onError(RequiredFile, " is Required");
-        }
-    });
-}
-
-//size and formmat Validate
-const UploadFiles = document.getElementsByClassName("Dfile");
-for (let i = 0; i < UploadFiles.length; i++) {
-    UploadFiles[i].addEventListener("input", FileValidate);
-}
-
-function FileValidate(e) {
-    let UploadFile = e.target;
-
-    //extaintion Validation
-    let fileValue = UploadFile.value;
-    let getExt = fileValue.split(".").pop().toLowerCase();
-    let exts = ["jpg", "png", "jpeg"];
-
-    if (exts.includes(getExt)) {
-        //file Size Validation
-        let fileSize_b = UploadFile.files[0].size;
-        let fileSize = Math.round(fileSize_b / 1024);
-
-        if (fileSize > "2048") {
-            onError(UploadFile, " Must Be Under 2MB");
-
-            setTimeout(() => {
-                UploadFile.value = "";
-            }, 1000);
-        } else {
-            onSuccess(UploadFile);
-        }
-    } else {
-        onError(UploadFile, " Must Be jpg, png, jpeg Format");
-        setTimeout(() => {
-            UploadFile.value = "";
-        }, 1000);
-    }
-}
+// address scripting
 
 //pin code Validate
 let pin = document.getElementById("pin");
@@ -201,8 +151,174 @@ pin.addEventListener("input", () => {
     }
 });
 
-// onsubmit validation || main validation
-submitBtn.addEventListener("click", redirect);
 
-const redirectSite = new URL(location.href).hostname + "/html-files/thanks.html"
-document.getElementById('redirect').value = `https://${redirectSite}`
+// file upload scripting
+
+// upload popup showing toggle 
+const uploadPopup = document.getElementById('uploadpopup')
+
+document.getElementById('uploadField').addEventListener('click', () => uploadPopupToggle(true))
+document.getElementById('uploadPopupClose').addEventListener('click', () => uploadPopupToggle(false))
+
+function uploadPopupToggle(show){
+    if (show) {
+        uploadPopup.classList.add('show')
+    }else uploadPopup.classList.remove('show')
+}
+
+// file validation
+const files = document.querySelectorAll('#fileContainer input[type="file"]');
+files.forEach((file) =>{
+    file.addEventListener('change', (e) => checkFileError(file))
+})
+
+function checkFileError(file){
+    // file format validation
+    const exts = ['png', 'jpeg', 'jpg']
+    const fileVal = file.value.trim()
+
+if (fileVal.length !== 0) {
+    const fileExt = fileVal.split('.').pop().toLowerCase()
+    const fileSize = file.files[0].size/1024
+
+     if (exts.includes(fileExt)) {
+        if (fileSize > 2048) {
+            onFileError(file, "upload Max 2MB image")
+        }else showFilName(file)
+    
+    }else onFileError(file, `please upload png,jpg or jpeg files`);
+}else{
+    if(file.parentElement.className.includes('Dreq'))onFileError(file, "Required")
+    setDefault(file.parentElement, file.id)
+}
+}
+
+
+function showFilName(file){
+    const fileName = file.value.trim().split(`\\`).reverse()[0]
+    const label = file.parentElement.querySelector('label')
+    label.textContent = fileName
+
+    // file.parentElement.classList.remove('error')
+    onSuccess(file)
+}
+
+function onFileError(file, msg){
+    const parent = file.parentElement
+    parent.classList.add('error')
+
+    file.value = ""
+    setDefault(parent, file.id)
+    parent.querySelector('.errorField').textContent = msg
+}
+
+
+function setDefault(container, id){
+    const label = container.querySelector('label')
+    label.innerHTML = `<svg
+            aria-hidden="true"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-width="2"
+              stroke="#fffffff"
+              d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+            ></path>
+            <path
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke-width="2"
+              stroke="#fffffff"
+              d="M17 15V18M17 21V18M17 18H14M17 18H20"
+            ></path>
+          </svg>`
+
+    // if (id === "proofOfIdentity") id = "proof Of Identity"
+    // ${id}<span class="red">*</span>
+
+    if (id === "proofOfIdentity") {
+        id = "proof Of Identity"
+    }else if(id === "panCard"){
+        id = "Pan Card"
+    }else if(id === "otherFile"){
+        id = "Other"
+    }
+
+
+    if (container.className.includes('Dreq')) {
+        label.innerHTML += `${id}<span class="red">*</span>`
+    }else{
+        label.append(id)
+    }
+}
+
+document.getElementById('upload').addEventListener('click', async() =>{
+    const reqDocs = document.querySelectorAll('.files.Dreq')
+    const reqSucDocs = document.querySelectorAll('.files.Dreq.success')
+    
+    if (reqDocs.length === reqSucDocs.length) {
+        const { jsPDF } = window.jspdf
+        const pdf = new jsPDF()
+
+     for (let i = 0; i < files.length; i++) {
+         const fileConatiner = files[i]
+         const file = fileConatiner.files[0];
+        if (fileConatiner.value.trim()) {
+            const imageData = await readAsdataUrl(file);
+
+            pdf.addImage(imageData, 'PNG', 10, 10, 180, 180)
+            if (i < files.length - 1) {
+                pdf.addPage();
+            }
+        }
+        }
+        // adding userName in document name
+        let userName = document.getElementById('name').value.trim() || Date.now()
+        
+        // Convert jsPDF document to a Blob
+        const pdfBlob = pdf.output('blob');
+         console.log(pdfBlob);
+        const file = new File([pdfBlob], `${userName}_docs.pdf`, { type: "application/pdf" });
+
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(file);
+
+       document.getElementById('mainFile').files = dataTransfer.files
+
+      
+        const fileName = document.querySelector('#uploadField #fileName').textContent = `${userName}_docs.pdf`
+        
+
+        uploadPopupToggle(false)
+    }else{
+        reqDocs.forEach((file) => {
+            const input = file.querySelector('input[type="file"]')
+            checkFileError(input)
+        })
+    }
+})
+
+function readAsdataUrl(file){
+    return new Promise((res, rej) =>{
+        const reader = new FileReader()
+        reader.onload = () => res(reader.result)
+        reader.onerror= (err) => rej(err)
+        reader.readAsDataURL(file)
+    })
+}
+
+
+
+
+
+// onsubmit validation || main validation
+// submitBtn.addEventListener("click", redirect);
+
+// const redirectSite = new URL(location.href).hostname + "/html-files/thanks.html"
+// document.getElementById('redirect').value = `https://${redirectSite}`
