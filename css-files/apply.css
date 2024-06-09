@@ -16,6 +16,7 @@ main {
   padding-top: 67px;
   box-sizing: border-box;
   overflow-y: auto;
+  /* overflow-x: hidden; */
 }
 
 /* disclaimer styling */
@@ -156,22 +157,42 @@ form {
 
 #formNavigation a:first-child {
   font-size: 0.9em;
-  background-color: #fff;
 }
 
 #formNavigation a:hover {
   background-color: #ffff;
 }
 
+.formLinks.active{
+  background-color: #ffffff;
+}
+
+#formsSection{
+width: 100%;
+min-height: 584px;
+position: relative;
+}
+
 .fieldContainer {
   width: 100%;
-  /* position: absolute; */
-  min-height: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 30px;
+  position: absolute;
+}
+
+.fieldContainer[position="prev"]{
+  left: -100vw;
+}
+
+.fieldContainer[position="action"]{
+  left: 0;
+}
+
+.fieldContainer[position="next"]{
+  left: 100vw;
 }
 
 .fields {
@@ -331,4 +352,175 @@ input[type="number"] {
 
 #formBtn button:hover{
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* document Upload Styling */
+#uploadField{
+  border: 2px dashed #CACACA;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  top: 50px;
+}
+
+#uploadField:hover{
+  border-color: #4B5563;
+}
+
+#uploadField img{
+  user-select: none;
+  width: 80px;
+}
+
+#uploadField #fileName{
+  font-size: 16px;
+  color: #4B5563;
+  font-weight: 500;
+}
+
+#uploadField #mainFile{
+  position: absolute;
+  visibility: hidden;
+}
+
+#uploadpopup{
+  background-color: #D9D9D9;
+  max-width: 566px;
+  width: 90%;
+  box-sizing: border-box;
+  padding-block: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 6;
+  transform: scale(0);
+  transition: all .3s ease-in;
+}
+
+#uploadpopup.show{
+transform: scale(1);
+}
+
+#uploadpopup #upload{
+  padding: 17px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+
+#uploadpopup #upload:hover{
+  letter-spacing: 3px;
+background-color: hsl(261deg 80% 48%);
+color: hsl(0, 0%, 100%);
+box-shadow: rgb(93 24 220) 0px 7px 10px 0px;
+}
+
+#uploadpopup #fileContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 20px 60px;
+  margin-block: 20px;
+}
+
+#fileContainer .files{
+position: relative;
+max-width: 214px;
+}
+
+#fileContainer .files label {
+  border: none;
+  display: flex;
+  padding: 0.75rem 1.5rem;
+  background-color: #488aec;
+  color: #ffffff;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  align-items: center;
+  border-radius: 0.5rem;
+  user-select: none;
+  gap: 0.75rem;
+  box-shadow: 0 4px 6px -1px #488aec31, 0 2px 4px -1px #488aec17;
+  transition: all 0.6s ease;
+  cursor: pointer;
+}
+
+.files label .red{color: #961d1d;}
+
+#fileContainer .files label:hover {
+  box-shadow: 0 10px 15px -3px #488aec6e, 0 4px 6px -2px #488aec71;
+}
+
+#fileContainer .files label:focus,
+button:active {
+  opacity: 0.85;
+  box-shadow: none;
+}
+
+#fileContainer .files label svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+#fileContainer .files input[type="file"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.files .errorField{
+  display: inline-block;
+  color: #ff5555;
+  font-weight: 500;
+  padding-left: 3px;
+  padding-top: 5px;
+  visibility: hidden;
+  font-size: 12px;
+}
+
+
+#fileContainer .files.error .errorField{
+  visibility: visible;
+} 
+
+#uploadPopupClose{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-block: 3px;
+  border: none;
+  border-radius: 0 10px 0 10px;
+  box-shadow: inset -19px 10px 50px -33px rgba(133,143,204,1);
+  cursor: pointer;
+}
+
+#uploadPopupClose:hover img{
+  transform: rotate(90deg);
+}
+
+#uploadPopupClose img{
+  width: 25px;
+  transition: all .2s ease-out;
 }

@@ -101,94 +101,349 @@
             
             <!-- navigation -->
             <div id="formNavigation">
-              <a href="#personalDetails" class="formLinks">personal Details</a>
-              <a href="#" class="formLinks">Address</a>
-              <a href="#" class="formLinks">Additional Info</a>
+              <a href="#personalDetails" class="formLinks active">personal Details</a>
+              <a href="#address" class="formLinks">Address</a>
+              <a href="#additionalInfo" class="formLinks">Additional Info</a>
              </div>
 
                   <!-----------------------------------
                    --------main form start from Here----
                    ------------------------------------->
-
-      <section id="personalDetails" class="fieldContainer">
-
-        <div class="fields">
-          <input type="text" name="Name" id="name" placeholder="Full Name *" class="req alpha">
-          <div class="errorField">Error Here</div>
+<div id="formsSection">
+  <section id="personalDetails" class="fieldContainer" position="prev">
+  
+    <div class="fields">
+      <input type="text" name="Name" id="name" placeholder="Full Name *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+    
+    <div class="fields">
+      <input type="text" name="Father_Name" id="father" placeholder="Father Name *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+  
+    <div class="fields">
+      <input type="text" name="Mother" id="mother" placeholder="Mother Name" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+  
+    <div class="fields">
+      <input type="number" name="Phone" id="phone" placeholder="Phone No. *" class="req">
+      <div class="errorField">Error Here</div>
+    </div>
+  
+    <div class="fields">
+      <input type="email" name="Email" id="email" placeholder="Email Id. *" class="req">
+      <div class="errorField">Error Here</div>
+    </div>
+  
+    <div class="fields">
+      <input type="date" name="DateOfBirth" id="DoB" class="req">
+      <div class="errorField">Error Here</div>
+    </div>
+  
+    <div class="fields selectField">
+      <select name="edicationQualification" id="edicationQualification">
+        <option value="">Education Qualification *</option>
+        <option value="10th">10th Pass</option>
+        <option value="12th">12th Pass</option>
+        <option value="BA">BA</option>
+        <option value="BCA">BCA</option>
+        <option value="BSC">BSC</option>
+        <option value="BCOM">BCOM</option>
+        <option value="MA">MA</option>
+        <option value="MCA">MCA</option>
+        <option value="MSC">MSC</option>
+        <option value="MCOM">MCOM</option>
+        <option value="PHD">PHD</option>
+        <option value="NA">NA</option>
+      </select>
+      <div class="errorField">Error Here</div>
+  
+      <span class="info">
+        <i class="fa-solid fa-circle-info"></i>
+        <span class="tooltip">If You Can't Find Your Education Qualification Select NA</span>
+      </span>
+    </div>
+  
+    <div class="fields">
+      <div id="genderField">
+  
+        <div class="gender">
+          <input type="radio" name="gender" value="male" id="male">
+          <label for="male">Male</label>
+        </div>
+  
+        <div class="gender">
+          <input type="radio" name="gender" value="female" id="female">
+          <label for="female">Female</label>
+        </div>
+  
+        <div class="gender">
+          <input type="radio" name="gender" value="other" id="other">
+          <label for="other">Other</label>
         </div>
         
-        <div class="fields">
-          <input type="text" name="Father" id="father" placeholder="Father Name *" class="req alpha">
-          <div class="errorField">Error Here</div>
+  
+      </div>
+      <div class="errorField">Error Here</div>
+    </div>
+  </section>
+
+  <section id="address" class="fieldContainer" position="prev">
+    <div class="fields">
+      <input type="text" name="Country" id="country" placeholder="Country *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+
+    <div class="fields">
+      <input type="text" name="State" id="state" placeholder="State *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+
+    <div class="fields">
+      <input type="text" name="District" id="district" placeholder="District *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+
+    <div class="fields">
+      <input type="text" name="City/Town/Village" id="city" placeholder="City/Town/Village *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+
+    <div class="fields">
+      <input type="number" name="Pin_Code" id="pin" placeholder="Pin Code *" class="req">
+      <div class="errorField">Error Here</div>
+    </div>
+
+    <div class="fields">
+      <input type="text" name="Landmark" id="landmark" placeholder="Landmark *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+
+    <div class="fields">
+      <input type="text" name="Post" id="post" placeholder="Post Office *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+
+    <div class="fields">
+      <input type="text" name="police_station" id="police" placeholder="Police Station *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+
+  </section>
+
+  <section id="additionalInfo" class="fieldContainer" position="action">
+    <div class="fields">
+      <input type="datetime-local" name="Date" id="applyDate" placeholder="Apply Date *" class="req">
+      <div class="errorField">Error Here</div>
+    </div>
+
+    <div id="uploadField">
+      <img src="../media/images/upload.png" alt="upload">
+      <div id="fileName">Click to upload file</div>
+      <input type="file" name="Docs" id="mainFile">
+     </div>
+
+     <div id="uploadpopup" class="">
+      <div id="fileContainer">
+        
+        <div class="files Dreq">
+          <label for="education">
+            <svg
+              aria-hidden="true"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+              <path
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M17 15V18M17 21V18M17 18H14M17 18H20"
+              ></path>
+            </svg>
+            EDUCATION<span class="red">*</span>
+          </label>
+          <input id="education" type="file" name="Education" accept="image/png, image/jpg, image/jpeg"/> 
+          <span class="errorField">Error here</span>
         </div>
-
-        <div class="fields">
-          <input type="text" name="Mother" id="mother" placeholder="Mother Name" class="req alpha">
-          <div class="errorField">Error Here</div>
+  
+        <div class="files Dreq">
+          <label for="marksheet">
+            <svg
+              aria-hidden="true"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+              <path
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M17 15V18M17 21V18M17 18H14M17 18H20"
+              ></path>
+            </svg>
+           MARKSHEET<span class="red">*</span>
+          </label>
+          <input id="marksheet" type="file" name="Marksheet" accept="image/png, image/jpg, image/jpeg"/>
+          <span class="errorField">Error here</span>
         </div>
-
-        <div class="fields">
-          <input type="number" name="Phone" id="phone" placeholder="Phone No. *" class="req">
-          <div class="errorField">Error Here</div>
+  
+        <div class="files">
+          <label for="otherFile">
+            <svg
+              aria-hidden="true"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+              <path
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M17 15V18M17 21V18M17 18H14M17 18H20"
+              ></path>
+            </svg>
+           OTHER
+          </label>
+          <input id="otherFile" type="file" name="Others" accept="image/png, image/jpg, image/jpeg"/> 
+          <span class="errorField">Error here</span>
         </div>
-
-        <div class="fields">
-          <input type="email" name="Email" id="email" placeholder="Email Id. *" class="req">
-          <div class="errorField">Error Here</div>
+  
+        <div class="files Dreq">
+          <label for="proofOfIdentity">
+            <svg
+              aria-hidden="true"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+              <path
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M17 15V18M17 21V18M17 18H14M17 18H20"
+              ></path>
+            </svg>
+            Proof of Identity<span class="red">*</span>
+          </label>
+          <input id="proofOfIdentity" type="file" name="Proof Of Identity" accept="image/png, image/jpg, image/jpeg"/> 
+          <span class="errorField">Error here</span>
         </div>
-
-        <div class="fields">
-          <input type="date" name="DateOfBirth" id="DoB" class="req">
-          <div class="errorField">Error Here</div>
+  
+        <div class="files Dreq">
+          <label for="photo">
+            <svg
+              aria-hidden="true"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+              <path
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M17 15V18M17 21V18M17 18H14M17 18H20"
+              ></path>
+            </svg>
+            photo<span class="red">*</span>
+          </label>
+          <input id="photo" type="file" name="Photo" accept="image/png, image/jpg, image/jpeg"/> 
+          <span class="errorField">Error here</span>
         </div>
-
-        <div class="fields selectField">
-          <select name="edicationQualification" id="edicationQualification">
-            <option value="">Education Qualification *</option>
-            <option value="10th">10th Pass</option>
-            <option value="12th">12th Pass</option>
-            <option value="BA">BA</option>
-            <option value="BCA">BCA</option>
-            <option value="BSC">BSC</option>
-            <option value="BCOM">BCOM</option>
-            <option value="MA">MA</option>
-            <option value="MCA">MCA</option>
-            <option value="MSC">MSC</option>
-            <option value="MCOM">MCOM</option>
-            <option value="PHD">PHD</option>
-            <option value="NA">NA</option>
-          </select>
-          <div class="errorField">Error Here</div>
-
-          <span class="info">
-            <i class="fa-solid fa-circle-info"></i>
-            <span class="tooltip">If You Can't Find Your Education Qualification Select NA</span>
-          </span>
+  
+        <div class="files">
+          <label for="panCard">
+            <svg
+              aria-hidden="true"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+              <path
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M17 15V18M17 21V18M17 18H14M17 18H20"
+              ></path>
+            </svg>
+            Pan Card
+          </label>
+          <input id="panCard" type="file" name="Pan Card" accept="image/png, image/jpg, image/jpeg"/> 
+          <span class="errorField">Error here</span>
         </div>
+  
+      </div>
+      <button id="upload" type="button">UPLOAD</button>
+  
+      <button type="button" id="uploadPopupClose"><img src="../media/images/close.webp" alt="close"></button>
+    </div>
+  </section>
+</div>
 
-        <div class="fields">
-          <div id="genderField">
 
-            <div class="gender">
-              <input type="radio" name="gender" value="male" id="male">
-              <label for="male">Male</label>
-            </div>
 
-            <div class="gender">
-              <input type="radio" name="gender" value="female" id="female">
-              <label for="female">Female</label>
-            </div>
-
-            <div class="gender">
-              <input type="radio" name="gender" value="other" id="other">
-              <label for="other">Other</label>
-            </div>
-            
-
-          </div>
-          <div class="errorField">Error Here</div>
-        </div>
-      </section>
 
      <div id="formBtn">
       <button type="button">Next</button>
@@ -212,9 +467,10 @@
         </a>
     </footer>
 
-  <script src="../js-files/apply.js"></script>
-  <script src="../js-files/script.js"></script>
-  <script src="https://kit.fontawesome.com/c9bf0afb2d.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://kit.fontawesome.com/c9bf0afb2d.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="../js-files/script.js"></script>
+    <script src="../js-files/apply.js"></script>
 </body>
 </html>
