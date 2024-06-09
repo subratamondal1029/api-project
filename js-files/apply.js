@@ -99,11 +99,11 @@ phone.addEventListener("input", () => {
     }
 });
 
-//Validate Email FIXME: solve it
+
 let email = document.getElementById("email");
 email.addEventListener("input", () => {
-    let emailPattern =
-        /^[A-Za-z0-9]{3,20}[._-]{0,1}[A-Za-z0-9]{1,8}[A-Za-z]*[@][A-Za-z]*[\.][a-z]{2,4}[.A-Za-z]{0,5}$/;
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
     let emailVal = email.value.trim();
 
     if (emailVal === "") {
@@ -314,8 +314,80 @@ function readAsdataUrl(file){
 }
 
 
+// btn working script
+const btn = document.querySelector('#formBtn button')
+btn.addEventListener('click', (e) =>{
+
+    const forms = Array.from(document.querySelectorAll('.fieldContainer'))
+    const currentForm = document.querySelector('.fieldContainer[position="action"]')
+    let currentIndex;
+    forms.forEach((form, i)=> {if (form.id === currentForm.id)currentIndex = i})
+
+changeBtn(currentIndex+1)
+})
+
+document.getElementById('formNavigation').addEventListener('click', (e) =>{
+    if (e.target.tagName === "LI") {
+        const target = e.target
+        const formLinks = document.querySelectorAll('.formLinks')
+
+        let clickedindex;
+        formLinks.forEach((link, i)=> {if(link === target) clickedindex = i})
+
+        changeBtn(clickedindex)
+    }
+})
+
+function changeBtn(index){
+    const forms = document.querySelectorAll('.fieldContainer')
+    console.log(index, forms.length);
+
+    if (index !== forms.length) {
+        changeFormlink(index)
+    btn.textContent = "Next"
+    btn.type = "button"
+    }
 
 
+    if(index === forms.length-1){
+        if (checkError()) {
+            btn.textContent = "Not Allowed"
+            btn.type = 'button'
+        }else{
+            btn.textContent = "Submit"
+            btn.type = "submit"
+        }
+    }
+
+}
+
+function changeForm(index){
+    const forms = Array.from(document.querySelectorAll('.fieldContainer'))
+    forms[index].setAttribute('position', "action")
+
+    for (let i = index; forms[i-1]; i--) {
+        forms[i-1].setAttribute('position', "prev")
+    }
+
+    for (let i = index; forms[i+1]; i++) {
+        forms[i+1].setAttribute('position', "next")
+    }
+}
+
+function changeFormlink(index){
+    const formLinks = document.querySelectorAll('.formLinks')
+    for (const formlink of formLinks) {
+    formlink.classList.remove('active')
+    }
+    formLinks[index].classList.add('active')
+
+    changeForm(index)
+}
+
+
+function checkError(){
+return true
+}
 
 // onsubmit validation || main validation
 // submitBtn.addEventListener("click", redirect);
