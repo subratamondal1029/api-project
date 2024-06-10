@@ -64,10 +64,16 @@
 
    #uploadpopup{
     margin-top: 100px;
+    top: 0;
+    margin-bottom: 90px;
    }
 
    #uploadpopup #fileContainer{
     grid-template-columns: 1fr;
+   }
+
+   #formNavigation{
+    width: 90%;
    }
 }
 
@@ -103,5 +109,9 @@
     
     .control img{
         filter: invert(1);
+    }
+
+    #formNavigation li, #formNavigation li:first-child{
+        font-size: .7em;
     }
 }

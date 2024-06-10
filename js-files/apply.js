@@ -5,8 +5,9 @@ function preventScroll(e) {
     e.preventDefault();
 }
 
-const disclaimerContainer = document.getElementById("disclaimerContainer")
 const disclaimerOverlay =document.getElementById('disclaimerOverlay')
+const disclaimerContainer = document.getElementById("disclaimerContainer")
+const cataSelect = document.getElementById('cataSelects')
 window.onload = () =>{
     document.getElementById('loading').style.display = "none"
     disclaimerContainer.classList.add('show')
@@ -20,7 +21,14 @@ const closeBtns = document.querySelectorAll(".closeBtn")
 closeBtns.forEach((close) =>{
     close.addEventListener("click", () => {
        disclaimerContainer.classList.remove('show')
-       setTimeout(() => disclaimerOverlay.style.display = "none", 500)
+        cataSelect.parentElement.classList.add('show')
+
+        cataSelect.addEventListener('change', () =>{
+            const cata = cataSelect.value
+            document.getElementById('formSubject').value = `New Application from (${cata}) API!`
+           setTimeout(() => disclaimerOverlay.style.display = "none", 500)
+           printFilledData()
+        })
 
     //    remove scrolling prevantion
         window.removeEventListener('wheel', preventScroll);
@@ -30,7 +38,36 @@ closeBtns.forEach((close) =>{
 
 
 // form validation
-
+const filledData = JSON.parse(localStorage.getItem('filledData')) || {}
+function printFilledData(){
+    for (const key in filledData) {
+        const name = key;
+        const value = filledData[key]
+        
+        if (name === "Gender") {
+            if(value){
+                const genders = document.getElementsByName('Gender')
+                genders.forEach((gender) =>{
+                    if (gender.value === value) {
+                        gender.checked = true
+                        onSuccess(gender.parentElement.parentElement);
+                    }
+                })
+            }
+        }else if(name === "Pin_Code"){
+            const elm = document.getElementsByName(name)[0]
+            elm.value = value
+            onSuccess(elm)
+            getPinData(value)
+        }else if(name !== "post_office"){
+            if (value) {
+                const elm = document.getElementsByName(name)[0]
+                elm.value = value
+                onSuccess(elm)
+            }
+        }
+    }
+}
 
 // when the field is Not give any error
 
@@ -39,6 +76,7 @@ function onSuccess(element) {
 
     parantElm.classList.remove("error");
     parantElm.classList.add("success");
+    setTolocal(element)
 }
 
 // when the field is give error
@@ -48,9 +86,9 @@ function onError(element, msg) {
     parantElm.classList.remove("success");
     parantElm.classList.add("error");
 
-    let elmName = element.name;
-    let errmsg = parantElm.querySelector("div");
-    errmsg.innerHTML = `${elmName} ${msg}`;
+    let elmName = element.name ?? "This "
+    let errmsg = parantElm.querySelector(".errorField")
+    if (errmsg) errmsg.innerHTML = `${elmName} ${msg}`;
 
     changeHeight(parantElm.parentElement);
 }
@@ -84,6 +122,7 @@ alphabate.forEach((input) =>{
         if (!alphabatePatarn.test(value)) {
             onError(input, "Only Contains Alphabate")
         }else{
+           
             if (!input.className.includes('req')) {
                 input.parentElement.classList.remove('error')
             }
@@ -117,7 +156,7 @@ email.addEventListener("input", () => {
         onError(email, " is Required");
     } else if (!emailPattern.test(emailVal)) {
         onError(email, " is Invalid");
-    }
+    }else onSuccess(email)
 });
 
 //Validate Date of Birth
@@ -150,7 +189,7 @@ edicationQualification.addEventListener('change', () =>{
 })
 
 // gender Validation
-const genders = document.getElementsByName('gender')
+const genders = document.getElementsByName('Gender')
 genders.forEach((gender)=>{
     gender.addEventListener('change', () =>{
         if (gender.checked) {
@@ -172,16 +211,19 @@ pin.addEventListener("input", () => {
         onError(pin, " Must Be 6 Number");
     } else {
         onSuccess(pin);
-
-        const url = `https://api.postalpincode.in/pincode/${pinVal}`;
-        fetch(url).then((res) => res.json())
-        .then((result) =>  {
-        const data = result[0].PostOffice
-          data ? printData(data) : alert('Enter A Valid Pin code')
-        })
-        .catch((err) => console.error(err))
+        getPinData(pinVal)
     }
 });
+
+function getPinData(pinVal){
+    const url = `https://api.postalpincode.in/pincode/${pinVal}`;
+    fetch(url).then((res) => res.json())
+    .then((result) =>  {
+    const data = result[0].PostOffice
+      data ? printData(data) : alert('Enter A Valid Pin code')
+    })
+    .catch((err) => console.error(err))
+}
 
 function printData(data){
     const postField = document.getElementById('post')
@@ -257,6 +299,7 @@ function showFilName(file){
 
 function onFileError(file, msg){
     const parent = file.parentElement
+    parent.classList.remove("success")
     parent.classList.add('error')
 
     file.value = ""
@@ -413,14 +456,12 @@ function changeBtn(index){
         changeFormlink(index)
     btn.textContent = "Next"
     btn.type = "button"
-    btn.parentElement.classList.remove('errrr')
     }
 
 
     if(index === forms.length-1){
             btn.textContent = "Submit"
             btn.type = "submit"
-            btn.parentElement.classList.remove('errrr')
     }
 
 }
@@ -457,16 +498,11 @@ function changeHeight(form){
 
 
 function checkError(e){
-    if (e) e.preventDefault()
     
     const reqFields = document.querySelectorAll('.reqField')
     const sucFields = document.querySelectorAll('.reqField.success')
     if (reqFields.length !== sucFields.length) {
         e.preventDefault()
-            btn.textContent = "Not Allowed"
-            btn.type = 'button'
-            btn.parentElement.classList.add('errrr')
-        
         
      for (let i = 0; i < reqFields.length; i++) {
         const field = reqFields[i];
@@ -476,26 +512,65 @@ function checkError(e){
             fieldContainers.forEach((field, index) =>{
                 if (field === fieldContainer) {
                     changeBtn(index)
+                    showError()
                 }
             })
 
-            if (!field.className.includes('error')) requiredCheck(i)
+            function showError(){
+                if (!field.className.includes('error')) {
+                    const child = field.querySelector('input') || field.querySelector('select')
+                    if (child.name === "Gender") {
+                        onError(child.parentElement.parentElement, "Is Required")
+                    }else{
+                        onError(child, "Is Required")
+                    }
+                }
+
+            }
+
 
                 
             break
            }
      }
     }else{
-         btn.textContent = "Submiting...."
+        btn.textContent = "Submiting...."
         btn.disabled = true
+        localStorage.removeItem('filledData')
     }
 }
 
 const form = document.querySelector('form')
 form.addEventListener('submit', checkError)
 
-// onsubmit validation || main validation
-// submitBtn.addEventListener("click", redirect);
 
-// const redirectSite = new URL(location.href).hostname + "/html-files/thanks.html"
-// document.getElementById('redirect').value = `https://${redirectSite}`
+const redirectSite = new URL(location.href).hostname + "/html-files/thanks.html"
+document.getElementById('redirect').value = `https://${redirectSite}`
+
+
+function setTolocal(elm){
+
+    if (elm.id === "genderField") {
+        const elms = document.getElementsByName('Gender')
+        const key = "Gender"
+        let value
+        elms.forEach((element) =>{
+            if (element.checked) {
+                value = element.value
+            }
+        })
+
+        filledData[key] = value
+    }else if(!elm.value.includes('fakepath') && elm.name !== "Date"){
+        
+        const key = elm.name
+        const value = elm.value.trim()
+
+        filledData[key] = value
+        }
+        
+        
+    if (elm.name !== "Date") {
+        localStorage.setItem('filledData', JSON.stringify(filledData))
+    }
+}

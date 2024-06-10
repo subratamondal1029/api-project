@@ -50,7 +50,7 @@
                ----- Disclaimer----
                -------------------->
 
-  <!-- <div id="disclaimerOverlay">
+  <div id="disclaimerOverlay">
     <div id="loading">
       <img src="../media/images/homeLoading.gif" alt="load">
     </div>
@@ -67,36 +67,35 @@
         <li class="disclaimer">Recheck Details Before Submit.</li>  
       </ul>
     </div>
-  </div> -->
+
+      <div id="cataSelect">
+      <select name="Catagories" id="cataSelects">
+        <option value="">Catagorie *</option>
+        <option value="IT">IT</option>
+        <option value="Health">Health</option>
+        <option value="Personality">Personality Development</option>
+      </select>
+    </div>
+  </div>
 
               <!--------------------
                  ------Main form------
                 ---------------------->
 
-    <!-- <div id="cataSelect">
-      <label for="cataSelects">Catagories: </label>
-      <select name="Catagories" id="cataSelects">
-        <option value="select">Select</option>
-        <option value="it">IT</option>
-        <option value="health">Health</option>
-        <option value="personality">Personality Development</option>
-      </select>
-    </div> -->
-
     <!--     <div id="form"> -->
       <!-- <form action="https://formsubmit.co/7dd6a70f45484fe242a932229f192b09" method="post" enctype="multipart/form-data" id="mainForm"> -->
-        <form action="https://formsubmit.co/7dd6a70f45484fe242a932229f192b09" method="post" enctype="multipart/form-data" id="mainForm" autocomplete="off">
+        <form action="https://formsubmit.co/xowek55972@lapeds.com" method="post" enctype="multipart/form-data" id="mainForm" autocomplete="off">
           
           <!---------------------------------
           ---some property form form submit----
           ----------------------------------->
-          <!-- <div>
+          <div>
             <input type="hidden" name="_subject" value="New Application from API!" id="formSubject">
             <input type="hidden" name="_blacklist" value="spammy pattern, banned term, phrase">
             <input type="hidden" name="_autoresponse" value="Thanks for Giving Your Details Our team contact you shortly!">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_next" id="redirect">
-            </div> -->
+            </div>
             
             
             <!-- navigation -->
@@ -128,17 +127,17 @@
     </div>
   
     <div class="fields reqField">
-      <input type="number" name="Phone" id="phone" placeholder="Phone No. *" class="req">
+      <input type="number" name="Phone" id="phone" placeholder="Phone No. *">
       <div class="errorField">Error Here</div>
     </div>
   
     <div class="fields reqField">
-      <input type="email" name="Email" id="email" placeholder="Email Id. *" class="req">
+      <input type="email" name="Email" id="email" placeholder="Email Id. *">
       <div class="errorField">Error Here</div>
     </div>
   
     <div class="fields reqField">
-      <input type="date" name="DateOfBirth" id="DoB" class="req">
+      <input type="date" name="DateOfBirth" id="DoB">
       <div class="errorField">Error Here</div>
     </div>
   
@@ -170,17 +169,17 @@
       <div id="genderField">
   
         <div class="gender">
-          <input type="radio" name="gender" value="male" id="male">
+          <input type="radio" name="Gender" value="male" id="male">
           <label for="male">Male</label>
         </div>
   
         <div class="gender">
-          <input type="radio" name="gender" value="female" id="female">
+          <input type="radio" name="Gender" value="female" id="female">
           <label for="female">Female</label>
         </div>
   
         <div class="gender">
-          <input type="radio" name="gender" value="other" id="other">
+          <input type="radio" name="Gender" value="other" id="other">
           <label for="other">Other</label>
         </div>
         
@@ -192,7 +191,7 @@
 
   <section id="address" class="fieldContainer" position="next">
     <div class="fields reqField">
-      <input type="number" name="Pin_Code" id="pin" placeholder="Pin Code *" class="req">
+      <input type="number" name="Pin_Code" id="pin" placeholder="Pin Code *">
       <div class="errorField">Error Here</div>
     </div>
 
@@ -224,7 +223,7 @@
     </div>
 
     <div class="fields reqField">
-      <input type="text" name="Landmark" id="landmark" placeholder="Landmark *" class="req alpha">
+      <input type="text" name="Landmark" id="landmark" placeholder="Landmark *" class="req">
       <div class="errorField">Error Here</div>
     </div>
 
@@ -247,7 +246,16 @@
       <input type="file" name="Docs" id="mainFile">
      </div>
 
-     <div id="uploadpopup" class="">
+  </section>
+</div>
+
+
+
+     <div id="formBtn">
+      <button type="button">Next</button>
+     </div>
+    </form>
+    <div id="uploadpopup" class="">
       <div id="fileContainer">
         
         <div class="files Dreq">
@@ -441,15 +449,6 @@
   
       <button type="button" id="uploadPopupClose"><img src="../media/images/close.webp" alt="close"></button>
     </div>
-  </section>
-</div>
-
-
-
-     <div id="formBtn">
-      <button type="button">Next</button>
-     </div>
-    </form>
   </main>
 
             <!-------------------               
