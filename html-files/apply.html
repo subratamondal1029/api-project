@@ -112,37 +112,37 @@
 <div id="formsSection">
   <section id="personalDetails" class="fieldContainer" position="action">
   
-    <div class="fields">
+    <div class="fields reqField">
       <input type="text" name="Name" id="name" placeholder="Full Name *" class="req alpha">
       <div class="errorField">Error Here</div>
     </div>
     
-    <div class="fields">
+    <div class="fields reqField">
       <input type="text" name="Father_Name" id="father" placeholder="Father Name *" class="req alpha">
       <div class="errorField">Error Here</div>
     </div>
   
     <div class="fields">
-      <input type="text" name="Mother" id="mother" placeholder="Mother Name" class="req alpha">
+      <input type="text" name="Mother" id="mother" placeholder="Mother Name" class="alpha">
       <div class="errorField">Error Here</div>
     </div>
   
-    <div class="fields">
+    <div class="fields reqField">
       <input type="number" name="Phone" id="phone" placeholder="Phone No. *" class="req">
       <div class="errorField">Error Here</div>
     </div>
   
-    <div class="fields">
+    <div class="fields reqField">
       <input type="email" name="Email" id="email" placeholder="Email Id. *" class="req">
       <div class="errorField">Error Here</div>
     </div>
   
-    <div class="fields">
+    <div class="fields reqField">
       <input type="date" name="DateOfBirth" id="DoB" class="req">
       <div class="errorField">Error Here</div>
     </div>
   
-    <div class="fields selectField">
+    <div id="EQField" class="fields reqField">
       <select name="edicationQualification" id="edicationQualification">
         <option value="">Education Qualification *</option>
         <option value="10th">10th Pass</option>
@@ -166,7 +166,7 @@
       </span>
     </div>
   
-    <div class="fields">
+    <div class="fields reqField">
       <div id="genderField">
   
         <div class="gender">
@@ -191,42 +191,44 @@
   </section>
 
   <section id="address" class="fieldContainer" position="next">
-    <div class="fields">
-      <input type="text" name="Country" id="country" placeholder="Country *" class="req alpha">
-      <div class="errorField">Error Here</div>
-    </div>
-
-    <div class="fields">
-      <input type="text" name="State" id="state" placeholder="State *" class="req alpha">
-      <div class="errorField">Error Here</div>
-    </div>
-
-    <div class="fields">
-      <input type="text" name="District" id="district" placeholder="District *" class="req alpha">
-      <div class="errorField">Error Here</div>
-    </div>
-
-    <div class="fields">
-      <input type="text" name="City/Town/Village" id="city" placeholder="City/Town/Village *" class="req alpha">
-      <div class="errorField">Error Here</div>
-    </div>
-
-    <div class="fields">
+    <div class="fields reqField">
       <input type="number" name="Pin_Code" id="pin" placeholder="Pin Code *" class="req">
       <div class="errorField">Error Here</div>
     </div>
 
-    <div class="fields">
+    <div class="fields reqField">
+      <select name="post_office" id="post" class="req">
+        <option value="" selected>post office *</option>
+      </select>
+      <div class="errorField">Error Here</div>
+    </div>
+    
+    <div class="fields reqField">
+      <input type="text" name="Country" id="country" placeholder="Country *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+
+    <div class="fields reqField">
+      <input type="text" name="State" id="state" placeholder="State *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+
+    <div class="fields reqField">
+      <input type="text" name="District" id="district" placeholder="District *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+
+    <div class="fields reqField">
+      <input type="text" name="City/Town/Village" id="city" placeholder="City/Town/Village *" class="req alpha">
+      <div class="errorField">Error Here</div>
+    </div>
+
+    <div class="fields reqField">
       <input type="text" name="Landmark" id="landmark" placeholder="Landmark *" class="req alpha">
       <div class="errorField">Error Here</div>
     </div>
 
-    <div class="fields">
-      <input type="text" name="Post" id="post" placeholder="Post Office *" class="req alpha">
-      <div class="errorField">Error Here</div>
-    </div>
-
-    <div class="fields">
+    <div class="fields reqField">
       <input type="text" name="police_station" id="police" placeholder="Police Station *" class="req alpha">
       <div class="errorField">Error Here</div>
     </div>
@@ -239,7 +241,7 @@
       <div class="errorField">Error Here</div>
     </div>
 
-    <div id="uploadField">
+    <div id="uploadField" class="fields reqField">
       <img src="../media/images/upload.png" alt="upload">
       <div id="fileName">Click to upload file</div>
       <input type="file" name="Docs" id="mainFile">
@@ -444,14 +446,14 @@
 
 
 
-
      <div id="formBtn">
       <button type="button">Next</button>
      </div>
     </form>
   </main>
 
-  <!-------------------               -------footer--------
+            <!-------------------               
+            -------footer--------
                ------------------->
 
        <footer>

@@ -51,6 +51,8 @@ function onError(element, msg) {
     let elmName = element.name;
     let errmsg = parantElm.querySelector("div");
     errmsg.innerHTML = `${elmName} ${msg}`;
+
+    changeHeight(parantElm.parentElement);
 }
 
 // Step 1 validation
@@ -58,32 +60,37 @@ function onError(element, msg) {
 // validate required fields
 let required = document.getElementsByClassName("req");
 for (let i = 0; i < required.length; i++) {
-    required[i].addEventListener("input", () => {
-      const requiredVal = required[i].value.trim();
+    required[i].addEventListener("input", () => requiredCheck(i));
+}
 
-        if (requiredVal == "") {
-            onError(required[i], " is Required");
-        } else if (requiredVal.length < 3) {
-            onError(required[i], " Must Be 3 Characters");
-        } else {
-            onSuccess(required[i]);
-        }
-    });
+function requiredCheck(i){
+    const requiredVal = required[i].value.trim();
+
+    if (requiredVal == "") {
+        onError(required[i], " is Required");
+    } else if (requiredVal.length < 3) {
+        onError(required[i], " Must Be 3 Characters");
+    } else {
+        onSuccess(required[i]);
+    }
 }
 
 // Validate alphabate
-let alphabate = document.getElementsByClassName("alpha");
-for (let i = 0; i < alphabate.length; i++) {
-    let alphabatePatarn = /^[A-Za-z ]{0,25}$/;
-
-    alphabate[i].addEventListener("input", () => {
-        let alphabateVal = alphabate[i].value.trim();
-
-        if (!alphabatePatarn.test(alphabateVal)) {
-            onError(alphabate[i], " Only Contain Alphabates");
+let alphabate = Array.from(document.getElementsByClassName("alpha"))
+let alphabatePatarn = /^[A-Za-z ]{0,25}$/;
+alphabate.forEach((input) =>{
+    input.addEventListener('input', () =>{
+        const value = input.value.trim()
+        if (!alphabatePatarn.test(value)) {
+            onError(input, "Only Contains Alphabate")
+        }else{
+            if (!input.className.includes('req')) {
+                input.parentElement.classList.remove('error')
+            }
         }
-    });
-}
+    })
+})
+
 
 //Validate Phone
 let phone = document.getElementById("phone");
@@ -99,7 +106,7 @@ phone.addEventListener("input", () => {
     }
 });
 
-
+// email validation
 let email = document.getElementById("email");
 email.addEventListener("input", () => {
     let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -135,6 +142,23 @@ DoB.addEventListener("input", () => {
     }
 });
 
+// education qualification
+const edicationQualification = document.getElementById('edicationQualification')
+edicationQualification.addEventListener('change', () =>{
+    const value = edicationQualification.value
+    value ? onSuccess(edicationQualification) : onError(edicationQualification, "IS Required")
+})
+
+// gender Validation
+const genders = document.getElementsByName('gender')
+genders.forEach((gender)=>{
+    gender.addEventListener('change', () =>{
+        if (gender.checked) {
+            onSuccess(gender.parentElement.parentElement)
+        }
+    })
+})
+
 // address scripting
 
 //pin code Validate
@@ -148,9 +172,38 @@ pin.addEventListener("input", () => {
         onError(pin, " Must Be 6 Number");
     } else {
         onSuccess(pin);
+
+        const url = `https://api.postalpincode.in/pincode/${pinVal}`;
+        fetch(url).then((res) => res.json())
+        .then((result) =>  {
+        const data = result[0].PostOffice
+          data ? printData(data) : alert('Enter A Valid Pin code')
+        })
+        .catch((err) => console.error(err))
     }
 });
 
+function printData(data){
+    const postField = document.getElementById('post')
+    data.forEach((PostOffice) =>{
+        const option = document.createElement('option')
+        option.value = PostOffice.Name
+        option.textContent = PostOffice.Name
+        postField.appendChild(option)
+    })
+
+const country = document.getElementById('country')
+const state = document.getElementById('state')
+const district = document.getElementById('district')
+
+country.value = data[0].Country
+state.value = data[0].State
+district.value = data[0].District
+
+onSuccess(country)
+onSuccess(state)
+onSuccess(district)
+}
 
 // file upload scripting
 
@@ -199,7 +252,6 @@ function showFilName(file){
     const label = file.parentElement.querySelector('label')
     label.textContent = fileName
 
-    // file.parentElement.classList.remove('error')
     onSuccess(file)
 }
 
@@ -294,7 +346,8 @@ document.getElementById('upload').addEventListener('click', async() =>{
       
         const fileName = document.querySelector('#uploadField #fileName').textContent = `${userName}_docs.pdf`
         
-
+        
+        onSuccess(document.getElementById('mainFile'))
         uploadPopupToggle(false)
     }else{
         reqDocs.forEach((file) => {
@@ -312,6 +365,21 @@ function readAsdataUrl(file){
         reader.readAsDataURL(file)
     })
 }
+
+// adding Apply Date and time
+(() =>{
+    const applyDate = document.getElementById('applyDate')
+    const today = new Date()
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+    const day = String(today.getDate()).padStart(2, '0');
+    const hours = String(today.getHours()).padStart(2, '0');
+    const minutes = String(today.getMinutes()).padStart(2, '0');
+    const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+    applyDate.value = formattedDateTime
+
+    onSuccess(applyDate)
+})()
 
 
 // btn working script
@@ -340,23 +408,19 @@ document.getElementById('formNavigation').addEventListener('click', (e) =>{
 
 function changeBtn(index){
     const forms = document.querySelectorAll('.fieldContainer')
-    console.log(index, forms.length);
 
     if (index !== forms.length) {
         changeFormlink(index)
     btn.textContent = "Next"
     btn.type = "button"
+    btn.parentElement.classList.remove('errrr')
     }
 
 
     if(index === forms.length-1){
-        if (checkError()) {
-            btn.textContent = "Not Allowed"
-            btn.type = 'button'
-        }else{
             btn.textContent = "Submit"
             btn.type = "submit"
-        }
+            btn.parentElement.classList.remove('errrr')
     }
 
 }
@@ -372,6 +436,8 @@ function changeForm(index){
     for (let i = index; forms[i+1]; i++) {
         forms[i+1].setAttribute('position', "next")
     }
+
+    changeHeight(forms[index])
 }
 
 function changeFormlink(index){
@@ -384,10 +450,49 @@ function changeFormlink(index){
     changeForm(index)
 }
 
-
-function checkError(){
-return true
+function changeHeight(form){
+    const height = window.getComputedStyle(form).getPropertyValue('height')
+    document.getElementById('formsSection').style.minHeight = height
 }
+
+
+function checkError(e){
+    if (e) e.preventDefault()
+    
+    const reqFields = document.querySelectorAll('.reqField')
+    const sucFields = document.querySelectorAll('.reqField.success')
+    if (reqFields.length !== sucFields.length) {
+        e.preventDefault()
+            btn.textContent = "Not Allowed"
+            btn.type = 'button'
+            btn.parentElement.classList.add('errrr')
+        
+        
+     for (let i = 0; i < reqFields.length; i++) {
+        const field = reqFields[i];
+           if (!field.className.includes('success')) {
+             const fieldContainer = field.parentElement
+            const fieldContainers = document.querySelectorAll('.fieldContainer')
+            fieldContainers.forEach((field, index) =>{
+                if (field === fieldContainer) {
+                    changeBtn(index)
+                }
+            })
+
+            if (!field.className.includes('error')) requiredCheck(i)
+
+                
+            break
+           }
+     }
+    }else{
+         btn.textContent = "Submiting...."
+        btn.disabled = true
+    }
+}
+
+const form = document.querySelector('form')
+form.addEventListener('submit', checkError)
 
 // onsubmit validation || main validation
 // submitBtn.addEventListener("click", redirect);

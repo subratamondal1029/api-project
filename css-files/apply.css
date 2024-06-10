@@ -147,7 +147,6 @@ form {
 
 #formNavigation li {
   font-size: 1em;
-  height: 60px;
   color: #000;
   border-radius: 8px;
   text-align: center;
@@ -172,7 +171,7 @@ form {
 
 #formsSection{
 width: 100%;
-min-height: 584px;
+min-height: 567px;
 position: relative;
 }
 
@@ -269,9 +268,17 @@ input[type="number"] {
   transition: all 0.2s ease;
 }
 
-.fields.selectField{
+.fields#EQField{
   position: relative;
 } 
+
+.fields.success select {
+  border: 1px solid #29df46;
+}
+
+.fields.error select {
+  border: 1px solid #f22215;
+}
 
 .fields .info{
   position: absolute;
@@ -310,7 +317,13 @@ input[type="number"] {
   justify-content: center;
   align-items: center;
   gap: 14px;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, .06);
+  }
+  
+  .fields.success #genderField{
+  background-color: #29df472a;
+}
+  .fields.error #genderField{
+  background-color: #df3e292a;
 }
 
 #genderField input[type="radio"]{
@@ -358,6 +371,13 @@ input[type="number"] {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+#formBtn.errrr button:hover{
+  background-color: #ff5555;
+}
+#formBtn.errrr button img{
+  width: 20px;
+}
+
 
 /* document Upload Styling */
 #uploadField{
@@ -372,7 +392,11 @@ input[type="number"] {
   border-radius: 10px;
   cursor: pointer;
   position: relative;
-  top: 50px;
+  margin-top: 50px;
+}
+
+#uploadField.success{
+  border-color: #29df46;
 }
 
 #uploadField:hover{
@@ -514,6 +538,7 @@ button:active {
   right: 0;
   top: 0;
   padding-block: 3px;
+  padding-inline: 7px;
   border: none;
   border-radius: 0 10px 0 10px;
   box-shadow: inset -19px 10px 50px -33px rgba(133,143,204,1);

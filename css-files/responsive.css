@@ -61,6 +61,14 @@
    div#courses{
     left: 100%;
    }
+
+   #uploadpopup{
+    margin-top: 100px;
+   }
+
+   #uploadpopup #fileContainer{
+    grid-template-columns: 1fr;
+   }
 }
 
 
