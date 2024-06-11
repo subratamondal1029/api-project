@@ -1,4 +1,7 @@
 @import url(style.css);
+main{
+    margin-bottom: 135px;
+}
 
 /* adding styling in heading of catagories */
 .cataHeadings{
@@ -25,10 +28,10 @@
     z-index: 1;
 }
 
-#itcourseNav ul li {margin-block: 7px;}
+#itcourseNav ul li {margin-block: 7px;list-style: none;}
 
 #itcourseNav ul li a{
-    color: #163f50;
+    color: var(--HFcolor);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }#itcourseNav ul li a:hover{color: var(--hovercolor);}
 
@@ -47,11 +50,11 @@ div#foldicon{
 
 div#courses{
     padding: 20px;
-    border: 2px solid blue;
-    background-color: rgba(208, 188, 188, 0.95);
+    background-color: var(--HFbgcolor);
     position: relative;
     transition: left 1s;
     left: 0;
+    border-radius: 10px;
 }
 
 .course-section{
