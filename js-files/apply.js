@@ -409,21 +409,6 @@ function readAsdataUrl(file){
     })
 }
 
-// adding Apply Date and time
-(() =>{
-    const applyDate = document.getElementById('applyDate')
-    const today = new Date()
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
-    const day = String(today.getDate()).padStart(2, '0');
-    const hours = String(today.getHours()).padStart(2, '0');
-    const minutes = String(today.getMinutes()).padStart(2, '0');
-    const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
-    applyDate.value = formattedDateTime
-
-    onSuccess(applyDate)
-})()
-
 
 // btn working script
 const btn = document.querySelector('#formBtn button')
@@ -498,11 +483,11 @@ function changeHeight(form){
 
 
 function checkError(e){
+    e.preventDefault()
     
     const reqFields = document.querySelectorAll('.reqField')
     const sucFields = document.querySelectorAll('.reqField.success')
     if (reqFields.length !== sucFields.length) {
-        e.preventDefault()
         
      for (let i = 0; i < reqFields.length; i++) {
         const field = reqFields[i];
@@ -534,9 +519,9 @@ function checkError(e){
            }
      }
     }else{
+        sendData()
         btn.textContent = "Submiting...."
         btn.disabled = true
-        localStorage.removeItem('filledData')
     }
 }
 
@@ -561,16 +546,14 @@ function setTolocal(elm){
         })
 
         filledData[key] = value
-    }else if(!elm.value.includes('fakepath') && elm.name !== "Date"){
-        
+    }else if(!elm.value.includes('fakepath') && elm.name){
         const key = elm.name
         const value = elm.value.trim()
 
         filledData[key] = value
-        }
-        
-        
-    if (elm.name !== "Date") {
-        localStorage.setItem('filledData', JSON.stringify(filledData))
+    }
+     
+    if (elm.name) {
+        localStorage.setItem("filledData", JSON.stringify(filledData))
     }
 }

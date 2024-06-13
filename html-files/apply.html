@@ -85,19 +85,7 @@
 
     <!--     <div id="form"> -->
       <!-- <form action="https://formsubmit.co/7dd6a70f45484fe242a932229f192b09" method="post" enctype="multipart/form-data" id="mainForm"> -->
-        <form action="https://formsubmit.co/xowek55972@lapeds.com" method="post" enctype="multipart/form-data" id="mainForm" autocomplete="off">
-          
-          <!---------------------------------
-          ---some property form form submit----
-          ----------------------------------->
-          <div>
-            <input type="hidden" name="_subject" value="New Application from API!" id="formSubject">
-            <input type="hidden" name="_blacklist" value="spammy pattern, banned term, phrase">
-            <input type="hidden" name="_autoresponse" value="Thanks for Giving Your Details Our team contact you shortly!">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" id="redirect">
-            </div>
-            
+        <form method="post" enctype="multipart/form-data" id="mainForm" autocomplete="off">
             
             <!-- navigation -->
             <ul id="formNavigation">
@@ -123,7 +111,7 @@
     </div>
   
     <div class="fields">
-      <input type="text" name="Mother" id="mother" placeholder="Mother Name" class="alpha">
+      <input type="text" name="Mother_name" id="mother" placeholder="Mother Name" class="alpha">
       <div class="errorField">Error Here</div>
     </div>
   
@@ -138,7 +126,7 @@
     </div>
   
     <div class="fields reqField">
-      <input type="date" name="DateOfBirth" id="DoB">
+      <input type="date" name="DateOfBirth" id="DoB" >
       <div class="errorField">Error Here</div>
     </div>
   
@@ -236,15 +224,10 @@
   </section>
 
   <section id="additionalInfo" class="fieldContainer" position="next">
-    <div class="fields">
-      <input type="datetime-local" name="Date" id="applyDate" placeholder="Apply Date *" class="req">
-      <div class="errorField">Error Here</div>
-    </div>
-
     <div id="uploadField" class="fields reqField">
       <img src="../media/images/upload.png" alt="upload">
       <div id="fileName">Click to upload file</div>
-      <input type="file" name="Docs" id="mainFile">
+      <input type="file" id="mainFile">
      </div>
 
   </section>
@@ -470,8 +453,10 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/c9bf0afb2d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../modules/jspdf.js"></script>
     <script src="../js-files/script.js"></script>
+    <script src="../js-files/send.js"></script>
     <script src="../js-files/apply.js"></script>
 </body>
 </html>
