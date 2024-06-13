@@ -528,11 +528,6 @@ function checkError(e){
 const form = document.querySelector('form')
 form.addEventListener('submit', checkError)
 
-
-const redirectSite = new URL(location.href).hostname + "/html-files/thanks.html"
-document.getElementById('redirect').value = `https://${redirectSite}`
-
-
 function setTolocal(elm){
 
     if (elm.id === "genderField") {
