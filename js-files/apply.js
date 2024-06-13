@@ -25,7 +25,7 @@ closeBtns.forEach((close) =>{
 
         cataSelect.addEventListener('change', () =>{
             const cata = cataSelect.value
-            document.getElementById('formSubject').value = `New Application from (${cata}) API!`
+            document.getElementById('formSubject').value = cata
            setTimeout(() => disclaimerOverlay.style.display = "none", 500)
            printFilledData()
         })
