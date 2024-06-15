@@ -7,7 +7,7 @@ async function sendData(){
     const fileData = await getBase(mainFile)
     formData.append('file', JSON.stringify(fileData))
 
-    const AppScripturl = "https://script.google.com/macros/s/AKfycbzjwid7P1pxNpwymMzdKaIiJ0vgTQInLnMUEMKcAiWmMdC0HxeqY0hCCQWIl8FPO83LCg/exec"
+    const AppScripturl = "https://script.google.com/macros/s/AKfycbw57wcA0NLZUWKxXUDaIstKbzDfAROUINNEoHgukhBGE555OXCH2BprRVyA7h51j3Qayw/exec"
     fetch(AppScripturl,{
         method: "POST",
         body: formData
@@ -29,7 +29,11 @@ async function sendData(){
                 })
 
         }else{
-            console.error("Error: Can't Upload file " + data.error);
+            Swal.fire({
+                title: "Error",
+                text: "Can't Send Your Details, Try Again!",
+                icon: "error"
+              })
         }
     })
     .catch((err) => console.error(err))
