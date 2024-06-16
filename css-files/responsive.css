@@ -62,12 +62,6 @@
     left: 100%;
    }
 
-   #uploadpopup{
-    margin-top: 100px;
-    top: 0;
-    margin-bottom: 90px;
-   }
-
    #uploadpopup #fileContainer{
     grid-template-columns: 1fr;
    }
