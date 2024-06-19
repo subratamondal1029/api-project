@@ -69,6 +69,8 @@
    #formNavigation{
     width: 90%;
    }
+
+   #laptopImage, .detail{width: 100%;}
 }
 
 
