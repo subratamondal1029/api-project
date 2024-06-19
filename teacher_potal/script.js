@@ -18,9 +18,8 @@ form.addEventListener('submit', async(e) =>{
 })
 
 function printData(heading, datas){
-  let applydate = datas[0].split("T")[0]
-  let DOB = new Date(datas[8])
-  DOB = DOB.toLocaleDateString().replaceAll("/", "-")
+  let applydate = new Date(datas[0]).toLocaleDateString()
+  let DOB = new Date(datas[8]).toLocaleDateString()
 
   
     mainContainer.innerHTML += `<table>
@@ -70,9 +69,8 @@ function printStudentDetails(index){
     let content = data[i];
     const head = heads[i]
     if (i === 8) {
-      const DOBdate = new Date(content)
-      content = DOBdate.toLocaleDateString().replaceAll("/", "-")
-    }
+      content = new Date(content).toLocaleDateString()
+    }else if(i === data.length-1) content = `<a href="${content}" target="_blank">Click To See Docs</a>`
 
     createElm("div", head, ["class", "data"], headingsContainer)
     createElm('div', content, ["class", "data"], contentsCon)
@@ -81,7 +79,7 @@ function printStudentDetails(index){
 
 function createElm(type, content, Atri,  parent){
   const elm = document.createElement(type)
-  elm.textContent = content
+  elm.innerHTML = content
   if (Atri) {
     elm.setAttribute(Atri[0], Atri[1])
   }
