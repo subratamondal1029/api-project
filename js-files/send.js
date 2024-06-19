@@ -7,7 +7,7 @@ async function sendData(){
     const fileData = await getBase(mainFile)
     formData.append('file', JSON.stringify(fileData))
 
-    const AppScripturl = "https://script.google.com/macros/s/AKfycbw57wcA0NLZUWKxXUDaIstKbzDfAROUINNEoHgukhBGE555OXCH2BprRVyA7h51j3Qayw/exec"
+    const AppScripturl = "https://script.google.com/macros/s/AKfycbwX8_oQsRX3OCsHk04oyvJ6ikyt6UcrdqO2JXpqMb-BWO-N7Eqkad8STZBCGdhyWwnV/exec"
     fetch(AppScripturl,{
         method: "POST",
         body: formData
